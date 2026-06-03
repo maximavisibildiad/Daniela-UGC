@@ -693,6 +693,48 @@
       transform: translateY(0);
     }
 
+    /* ── RESULTADOS ── */
+    #resultados {
+      background: var(--bg);
+      padding: 80px 60px;
+    }
+
+    .resultados-grid {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .resultado-item {
+      text-align: center;
+      flex: 1;
+      padding: 0 40px;
+    }
+
+    .resultado-item + .resultado-item {
+      border-left: 1px solid var(--rose-pale);
+    }
+
+    .resultado-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 68px;
+      font-weight: 400;
+      color: var(--rose);
+      display: block;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .resultado-label {
+      font-size: 14px;
+      color: var(--muted);
+      display: block;
+      line-height: 1.6;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
@@ -711,6 +753,12 @@
       .sobre-img { width: 100%; min-width: unset; height: 400px; }
       .sobre-title { font-size: 38px; }
       .stats-row { gap: 28px; flex-wrap: wrap; }
+
+      #resultados { padding: 60px 24px; }
+      .resultados-grid { flex-direction: column; gap: 36px; }
+      .resultado-item { padding: 0; border-left: none !important; border-top: 1px solid var(--rose-pale); padding-top: 36px; }
+      .resultado-item:first-child { border-top: none; padding-top: 0; }
+      .resultado-num { font-size: 52px; }
 
       #marcas { padding: 48px 0; }
       .marcas-title { font-size: 28px; padding: 0 24px; }
@@ -737,7 +785,7 @@
   <!-- NAVBAR -->
   <nav>
     <a href="#hero" class="nav-brand">Daniela Barrera</a>
-    <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20contenido%20UGC%20para%20mi%20marca" target="_blank" rel="noopener" class="nav-cta">WhatsApp</a>
+    <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20recibir%20mi%20asesor%C3%ADa" target="_blank" rel="noopener" class="nav-cta">Recibe mi asesoría</a>
   </nav>
 
   <!-- HERO -->
@@ -745,31 +793,31 @@
     <canvas class="particles-canvas" id="particlesCanvas"></canvas>
     <div class="hero-inner">
       <div class="hero-left">
-        <h1 class="hero-headline">Contenido auténtico que convierte marcas en experiencias</h1>
-        <p class="hero-sub">Creadora UGC especializada en contenido visual de alto impacto. Producciones estratégicas, edición dinámica y storytelling enfocado en posicionar marcas y generar resultados.</p>
-        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20contenido%20UGC%20para%20mi%20marca" target="_blank" rel="noopener" class="btn-hero">Cotiza por WhatsApp</a>
+        <h1 class="hero-headline">Quieres que tu marca venda más — yo creo el video que lo hace posible</h1>
+        <p class="hero-sub">Estudio tu producto, identifico los dolores de tu cliente ideal y diseño un guión que convierte — no uno que se ve bonito. Grabo, edito y te entrego el video listo para publicar.</p>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20recibir%20mi%20asesor%C3%ADa" target="_blank" rel="noopener" class="btn-hero">Recibe mi asesoría</a>
       </div>
     </div>
   </section>
 
   <!-- PROPUESTA DE VALOR -->
   <section id="valor">
-    <h2 class="section-title fade-in">¿Qué recibe tu marca?</h2>
+    <h2 class="section-title fade-in">Lo que voy a hacer por tu marca</h2>
     <div class="valor-grid">
       <div class="valor-card">
         <span class="valor-icon">✦</span>
-        <h3>Estrategia en cada video</h3>
-        <p>No entrego un video, entrego un objetivo cumplido con narrativa auténtica construida para tu marca.</p>
+        <h3>Guión que vende, no que suena bonito</h3>
+        <p>Antes de grabar: estudio tu producto, identifico los dolores de tu cliente y construyo una estructura con un solo objetivo — que quien lo vea actúe.</p>
       </div>
       <div class="valor-card">
         <span class="valor-icon">✦</span>
-        <h3>Cercanía que convierte</h3>
-        <p>Mi audiencia me conoce — esa confianza se transfiere directamente a tu marca.</p>
+        <h3>Producción completa, entregada lista</h3>
+        <p>Grabo, edito y te mando el video listo para publicar o pausar en pauta. Sin idas y venidas. Sin archivos sin terminar.</p>
       </div>
       <div class="valor-card">
         <span class="valor-icon">✦</span>
-        <h3>IA integrada al proceso</h3>
-        <p>Edición y estrategia con inteligencia artificial para producción más eficiente y resultados medibles.</p>
+        <h3>Hecho para funcionar en pauta</h3>
+        <p>Formatos y narrativa optimizados para Meta Ads — no solo para verse bien en el feed orgánico de tu marca.</p>
       </div>
     </div>
   </section>
@@ -801,43 +849,64 @@
     </div>
   </section>
 
+  <!-- RESULTADOS -->
+  <section id="resultados">
+    <h2 class="section-title fade-in">Números reales, marcas reales</h2>
+    <div class="resultados-grid">
+      <div class="resultado-item fade-in">
+        <span class="resultado-num">+142K</span>
+        <span class="resultado-label">visualizaciones<br>en un solo reel orgánico</span>
+      </div>
+      <div class="resultado-item fade-in">
+        <span class="resultado-num">95K</span>
+        <span class="resultado-label">visualizaciones<br>Brunch House</span>
+      </div>
+      <div class="resultado-item fade-in">
+        <span class="resultado-num">7.273</span>
+        <span class="resultado-label">interacciones totales<br>Brunch House · tasa ~7.6%</span>
+      </div>
+    </div>
+  </section>
+
   <!-- MARCAS -->
   <section id="marcas">
-    <h2 class="marcas-title fade-in">Marcas que han confiado en mi contenido</h2>
+    <h2 class="marcas-title fade-in">Marcas con las que he trabajado</h2>
     <div class="marquee-wrap">
       <div class="marquee-track" id="marqueeTrack">
         <span>Temu</span><span>·</span>
-        <span>Disney Land París</span><span>·</span>
-        <span>AVA Resort Cancún</span><span>·</span>
-        <span>Papas: Detodito</span><span>·</span>
-        <span>BrunchHouse</span><span>·</span>
+        <span>Entre Nubes</span><span>·</span>
+        <span>Amazónica Beleza</span><span>·</span>
+        <span>Brunch House</span><span>·</span>
+        <span>Nuestro Sueño</span><span>·</span>
+        <span>Samsonite</span><span>·</span>
+        <span>I Energy</span><span>·</span>
+        <span>Infinitek Paris</span><span>·</span>
+        <span>Verónica Ardila Swimwear</span><span>·</span>
         <span>Primos Cybermarket</span><span>·</span>
-        <span>Samsonite Colombia</span><span>·</span>
-        <span>Zorro Azul</span><span>·</span>
-        <span>La Fugitiva</span><span>·</span>
-        <span>Hilton Garden Inn</span><span>·</span>
-        <span>Chanel</span><span>·</span>
-        <span>Dior</span><span>·</span>
+        <span>Nvol</span><span>·</span>
+        <span>Té Hindu</span><span>·</span>
+        <span>Speedmax</span><span>·</span>
         <!-- duplicate for seamless loop -->
         <span>Temu</span><span>·</span>
-        <span>Disney Land París</span><span>·</span>
-        <span>AVA Resort Cancún</span><span>·</span>
-        <span>Papas: Detodito</span><span>·</span>
-        <span>BrunchHouse</span><span>·</span>
+        <span>Entre Nubes</span><span>·</span>
+        <span>Amazónica Beleza</span><span>·</span>
+        <span>Brunch House</span><span>·</span>
+        <span>Nuestro Sueño</span><span>·</span>
+        <span>Samsonite</span><span>·</span>
+        <span>I Energy</span><span>·</span>
+        <span>Infinitek Paris</span><span>·</span>
+        <span>Verónica Ardila Swimwear</span><span>·</span>
         <span>Primos Cybermarket</span><span>·</span>
-        <span>Samsonite Colombia</span><span>·</span>
-        <span>Zorro Azul</span><span>·</span>
-        <span>La Fugitiva</span><span>·</span>
-        <span>Hilton Garden Inn</span><span>·</span>
-        <span>Chanel</span><span>·</span>
-        <span>Dior</span><span>·</span>
+        <span>Nvol</span><span>·</span>
+        <span>Té Hindu</span><span>·</span>
+        <span>Speedmax</span><span>·</span>
       </div>
     </div>
   </section>
 
   <!-- REELS CARRUSEL -->
   <section id="reels">
-    <h2 class="section-title fade-in">El contenido en acción</h2>
+    <h2 class="section-title fade-in">Trabajos reales. Marcas reales.</h2>
     <div class="carousel-outer">
       <div class="carousel-track-wrap">
         <div class="carousel-track" id="carouselTrack">
@@ -853,67 +922,37 @@
             </div>
             <div class="reel-info">
               <span class="reel-brand">Temu</span>
-              <span class="reel-desc">Campaña de producto con múltiples artículos</span>
+              <span class="reel-desc">Campaña de múltiples productos — formato probado para pauta</span>
             </div>
           </div>
 
-          <!-- Slide 2: Disney Land París -->
+          <!-- Slide 2: Brunch House -->
           <div class="reel-slide">
             <div class="reel-frame-wrap">
-              <iframe class="reel-frame" src="https://www.instagram.com/reel/DDXftfPP3fV/embed" title="Disney Land París reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-1">
-                <span class="reel-placeholder-name">Disney Land París</span>
-                <a href="https://www.instagram.com/reel/DDXftfPP3fV/" target="_blank" rel="noopener">Ver reel ↗</a>
+              <iframe class="reel-frame" src="https://www.instagram.com/reel/DV8_KcHlb7D/embed" title="Brunch House reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+              <div class="reel-placeholder" id="ph-bh">
+                <span class="reel-placeholder-name">Brunch House</span>
+                <a href="https://www.instagram.com/reel/DV8_KcHlb7D/" target="_blank" rel="noopener">Ver reel ↗</a>
               </div>
             </div>
             <div class="reel-info">
-              <span class="reel-brand">Disney Land París</span>
-              <span class="reel-desc">Contenido de viaje y experiencias internacionales</span>
+              <span class="reel-brand">Brunch House</span>
+              <span class="reel-desc">95.702 visualizaciones · 7.273 interacciones</span>
             </div>
           </div>
 
-          <!-- Slide 3: AVA Resort Cancún -->
-          <div class="reel-slide">
-            <div class="reel-frame-wrap">
-              <iframe class="reel-frame" src="https://www.instagram.com/p/DJ2J5_4vNor/embed" title="AVA Resort Cancún" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-2">
-                <span class="reel-placeholder-name">AVA Resort Cancún</span>
-                <a href="https://www.instagram.com/p/DJ2J5_4vNor/" target="_blank" rel="noopener">Ver reel ↗</a>
-              </div>
-            </div>
-            <div class="reel-info">
-              <span class="reel-brand">AVA Resort Cancún</span>
-              <span class="reel-desc">Producción de lujo en destino internacional</span>
-            </div>
-          </div>
-
-          <!-- Slide 4: Primos Cybermarket -->
+          <!-- Slide 3: Primos Cybermarket -->
           <div class="reel-slide">
             <div class="reel-frame-wrap">
               <iframe class="reel-frame" src="https://www.instagram.com/p/DWUGZtPkcQI/embed" title="Primos Cybermarket" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-3">
+              <div class="reel-placeholder" id="ph-1">
                 <span class="reel-placeholder-name">Primos Cybermarket</span>
                 <a href="https://www.instagram.com/p/DWUGZtPkcQI/" target="_blank" rel="noopener">Ver reel ↗</a>
               </div>
             </div>
             <div class="reel-info">
               <span class="reel-brand">Primos Cybermarket</span>
-              <span class="reel-desc">Campaña de producto</span>
-            </div>
-          </div>
-
-          <!-- Slide 5: Chanel & Dior -->
-          <div class="reel-slide">
-            <div class="reel-frame-wrap">
-              <iframe class="reel-frame" src="https://www.instagram.com/reel/DU0434MFdsy/embed" title="Chanel y Dior" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-4">
-                <span class="reel-placeholder-name">Chanel &amp; Dior</span>
-                <a href="https://www.instagram.com/reel/DU0434MFdsy/" target="_blank" rel="noopener">Ver reel ↗</a>
-              </div>
-            </div>
-            <div class="reel-info">
-              <span class="reel-brand">Chanel &amp; Dior</span>
-              <span class="reel-desc">Contenido de marcas de lujo</span>
+              <span class="reel-desc">Video de producto — campaña de conversión</span>
             </div>
           </div>
 
@@ -973,8 +1012,8 @@
 
   <!-- CTA FINAL -->
   <section id="cta">
-    <p class="cta-text fade-in">¿Tienes claro quién es tu cliente ideal y qué quieres que haga? Eso es todo lo que necesito para empezar.</p>
-    <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20contenido%20UGC%20para%20mi%20marca" target="_blank" rel="noopener" class="btn-cta">Escribirle a Daniela por WhatsApp</a>
+    <p class="cta-text fade-in">Quieres más ventas para tu marca. Ya tienes el producto. Solo falta el video que lo mueve. Hablemos hoy.</p>
+    <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20recibir%20mi%20asesor%C3%ADa%20para%20videos%20UGC" target="_blank" rel="noopener" class="btn-cta">Pide tu asesoría con Daniela</a>
   </section>
 
   <!-- FOOTER -->
