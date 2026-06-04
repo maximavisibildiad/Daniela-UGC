@@ -693,6 +693,47 @@
       transform: translateY(0);
     }
 
+    /* ── STICKY CTA ── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--rose);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 26px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(212, 165, 160, 0.45);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .sticky-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .sticky-cta:hover {
+      opacity: 0.88;
+      transform: translateY(-2px) !important;
+    }
+
+    .hero-price-hint {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+
     /* ── RESULTADOS ── */
     #resultados {
       background: var(--bg);
@@ -796,6 +837,7 @@
         <h1 class="hero-headline">Quieres que tu marca venda más — yo creo el video que lo hace posible</h1>
         <p class="hero-sub">Estudio tu producto, identifico los dolores de tu cliente ideal y diseño un guión que convierte — no uno que se ve bonito. Grabo, edito y te entrego el video listo para publicar.</p>
         <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20recibir%20mi%20asesor%C3%ADa" target="_blank" rel="noopener" class="btn-hero">Recibe mi asesoría</a>
+        <p class="hero-price-hint">Desde $450.000 por video</p>
       </div>
     </div>
   </section>
@@ -977,8 +1019,8 @@
         <h3>1 Video UGC</h3>
         <p class="price-desc">Ideal para probar el formato o una campaña puntual.</p>
         <div class="price-divider"></div>
-        <span class="price-cop">$500.000 COP</span>
-        <span class="price-usd">~$119 USD</span>
+        <span class="price-cop">$450.000 COP</span>
+        <span class="price-usd">~$107 USD</span>
         <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20de%201%20video%20UGC" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
       </div>
 
@@ -1015,6 +1057,9 @@
     <p class="cta-text fade-in">Quieres más ventas para tu marca. Ya tienes el producto. Solo falta el video que lo mueve. Hablemos hoy.</p>
     <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20recibir%20mi%20asesor%C3%ADa%20para%20videos%20UGC" target="_blank" rel="noopener" class="btn-cta">Pide tu asesoría con Daniela</a>
   </section>
+
+  <!-- STICKY CTA -->
+  <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20recibir%20mi%20asesor%C3%ADa" target="_blank" rel="noopener" id="stickyCta" class="sticky-cta">Recibe mi asesoría →</a>
 
   <!-- FOOTER -->
   <footer>
@@ -1157,6 +1202,17 @@
       const dx = e.changedTouches[0].clientX - touchStartX;
       if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
     });
+
+    /* ── STICKY CTA ── */
+    (function () {
+      const btn = document.getElementById('stickyCta');
+      const hero = document.getElementById('hero');
+      function tick() {
+        btn.classList.toggle('visible', hero.getBoundingClientRect().bottom < 0);
+      }
+      window.addEventListener('scroll', tick, { passive: true });
+      tick();
+    })();
 
     /* ── IFRAME ERROR FALLBACK ── */
     document.querySelectorAll('.reel-frame').forEach((iframe, i) => {
