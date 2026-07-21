@@ -25,6 +25,10 @@
       --bg2: #F2EDE8;
       --rose-pale: #EACFC8;
       --rose: #D4A5A0;
+      --rose-deep: #C97F6E;
+      --pastel-yellow: #F6E3B4;
+      --pastel-pink: #F3C9BC;
+      --pastel-beige: #EADFC4;
       --text: #2C2C2C;
       --muted: #7A6E6E;
       --white: #FFFFFF;
@@ -65,7 +69,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--rose);
+      background: var(--rose-deep);
       color: var(--white);
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
@@ -73,6 +77,7 @@
       padding: 10px 22px;
       border-radius: 100px;
       text-decoration: none;
+      box-shadow: 0 4px 14px rgba(201, 127, 110, 0.35);
       transition: opacity 0.2s, transform 0.2s;
     }
     .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -153,7 +158,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--rose);
+      background: var(--rose-deep);
       color: var(--white);
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
@@ -163,6 +168,7 @@
       border-radius: 100px;
       text-decoration: none;
       margin-top: 36px;
+      box-shadow: 0 6px 20px rgba(201, 127, 110, 0.4);
       transition: opacity 0.2s, transform 0.2s;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.4s;
@@ -175,7 +181,7 @@
 
     /* ── VALUE PROPS ── */
     #valor {
-      background: var(--bg2);
+      background: var(--pastel-yellow);
       padding: 100px 60px;
     }
 
@@ -229,7 +235,7 @@
 
     /* ── SOBRE DANIELA ── */
     #sobre {
-      background: var(--bg);
+      background: var(--pastel-pink);
       padding: 100px 60px;
     }
 
@@ -288,7 +294,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 48px;
       font-weight: 400;
-      color: var(--rose);
+      color: var(--rose-deep);
       display: block;
       line-height: 1;
     }
@@ -302,7 +308,7 @@
 
     /* ── MARCAS MARQUEE ── */
     #marcas {
-      background: var(--bg);
+      background: var(--pastel-beige);
       padding: 60px 0;
     }
 
@@ -341,7 +347,7 @@
 
     /* ── PRECIOS ── */
     #precios {
-      background: var(--bg2);
+      background: var(--pastel-yellow);
       padding: 100px 60px;
     }
 
@@ -375,13 +381,13 @@
     }
 
     .price-card.featured {
-      background: var(--bg);
-      border: 2px solid var(--rose);
+      background: var(--white);
+      border: 2px solid var(--rose-deep);
     }
 
     .price-badge {
       display: inline-block;
-      background: var(--rose);
+      background: var(--rose-deep);
       color: var(--white);
       font-size: 11px;
       font-weight: 500;
@@ -434,7 +440,7 @@
       display: block;
       width: 100%;
       text-align: center;
-      background: var(--rose);
+      background: var(--rose-deep);
       color: var(--white);
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
@@ -442,6 +448,7 @@
       padding: 14px;
       border-radius: 100px;
       text-decoration: none;
+      box-shadow: 0 4px 14px rgba(201, 127, 110, 0.3);
       transition: opacity 0.2s, transform 0.2s;
     }
     .btn-price:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -471,7 +478,7 @@
 
     /* ── REELS CARRUSEL ── */
     #reels {
-      background: var(--bg);
+      background: var(--pastel-beige);
       padding: 100px 60px;
     }
 
@@ -605,7 +612,7 @@
 
     /* ── CTA FINAL ── */
     #cta {
-      background: linear-gradient(to bottom, var(--bg), var(--rose-pale));
+      background: linear-gradient(to bottom, var(--pastel-pink), var(--rose-deep));
       padding: 120px 60px;
       text-align: center;
     }
@@ -702,7 +709,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--rose);
+      background: var(--rose-deep);
       color: var(--white);
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
