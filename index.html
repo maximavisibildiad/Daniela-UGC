@@ -81,7 +81,7 @@
     #hero {
       min-height: 100vh;
       background-color: var(--bg2);
-      background-image: url("hf_20260409_152710_150a2db3-451c-4edd-95ec-82b865d9090c%20(1)%20(1).png");
+      background-image: url("assets/daniela-hero.png");
       background-size: cover;
       background-position: 65% top;
       display: flex;
@@ -781,6 +781,18 @@
       nav { padding: 16px 24px; }
 
       #hero { padding: 120px 24px 80px; background-position: 70% top; }
+      .hero-left {
+        padding: 28px 22px;
+        border-radius: 28px;
+        background: radial-gradient(
+          85% 75% at 50% 35%,
+          rgba(242,237,232,0.95) 0%,
+          rgba(242,237,232,0.9) 55%,
+          rgba(242,237,232,0.6) 78%,
+          rgba(242,237,232,0.15) 92%,
+          transparent 100%
+        );
+      }
       .hero-headline { font-size: 40px; }
       .hero-sub { font-size: 16px; }
       .btn-hero { align-self: flex-start; }
@@ -842,6 +854,68 @@
     </div>
   </section>
 
+  <!-- REELS CARRUSEL -->
+  <section id="reels">
+    <h2 class="section-title fade-in">Trabajos reales. Marcas reales.</h2>
+    <div class="carousel-outer">
+      <div class="carousel-track-wrap">
+        <div class="carousel-track" id="carouselTrack">
+
+          <!-- Slide 1: Temu -->
+          <div class="reel-slide">
+            <div class="reel-frame-wrap">
+              <iframe class="reel-frame" src="https://www.instagram.com/reel/DTIpZE4kWCh/embed" title="Temu reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+              <div class="reel-placeholder" id="ph-0">
+                <span class="reel-placeholder-name">Temu</span>
+                <a href="https://www.instagram.com/reel/DTIpZE4kWCh/" target="_blank" rel="noopener">Ver reel ↗</a>
+              </div>
+            </div>
+            <div class="reel-info">
+              <span class="reel-brand">Temu</span>
+              <span class="reel-desc">Campaña de múltiples productos — formato probado para pauta</span>
+            </div>
+          </div>
+
+          <!-- Slide 2: Brunch House -->
+          <div class="reel-slide">
+            <div class="reel-frame-wrap">
+              <iframe class="reel-frame" src="https://www.instagram.com/reel/DV8_KcHlb7D/embed" title="Brunch House reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+              <div class="reel-placeholder" id="ph-bh">
+                <span class="reel-placeholder-name">Brunch House</span>
+                <a href="https://www.instagram.com/reel/DV8_KcHlb7D/" target="_blank" rel="noopener">Ver reel ↗</a>
+              </div>
+            </div>
+            <div class="reel-info">
+              <span class="reel-brand">Brunch House</span>
+              <span class="reel-desc">95.702 visualizaciones · 7.273 interacciones</span>
+            </div>
+          </div>
+
+          <!-- Slide 3: Primos Cybermarket -->
+          <div class="reel-slide">
+            <div class="reel-frame-wrap">
+              <iframe class="reel-frame" src="https://www.instagram.com/p/DWUGZtPkcQI/embed" title="Primos Cybermarket" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
+              <div class="reel-placeholder" id="ph-1">
+                <span class="reel-placeholder-name">Primos Cybermarket</span>
+                <a href="https://www.instagram.com/p/DWUGZtPkcQI/" target="_blank" rel="noopener">Ver reel ↗</a>
+              </div>
+            </div>
+            <div class="reel-info">
+              <span class="reel-brand">Primos Cybermarket</span>
+              <span class="reel-desc">Video de producto — campaña de conversión</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">&#8592;</button>
+      <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">&#8594;</button>
+
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </section>
+
   <!-- PROPUESTA DE VALOR -->
   <section id="valor">
     <h2 class="section-title fade-in">Lo que voy a hacer por tu marca</h2>
@@ -849,17 +923,17 @@
       <div class="valor-card">
         <span class="valor-icon">✦</span>
         <h3>Guión que vende, no que suena bonito</h3>
-        <p>Antes de grabar: estudio tu producto, identifico los dolores de tu cliente y construyo una estructura con un solo objetivo — que quien lo vea actúe.</p>
+        <p>Un solo objetivo: que quien lo vea, actúe.</p>
       </div>
       <div class="valor-card">
         <span class="valor-icon">✦</span>
         <h3>Producción completa, entregada lista</h3>
-        <p>Grabo, edito y te mando el video listo para publicar o pausar en pauta. Sin idas y venidas. Sin archivos sin terminar.</p>
+        <p>Grabado, editado y listo para publicar. Sin vueltas.</p>
       </div>
       <div class="valor-card">
         <span class="valor-icon">✦</span>
         <h3>Hecho para funcionar en pauta</h3>
-        <p>Formatos y narrativa optimizados para Meta Ads — no solo para verse bien en el feed orgánico de tu marca.</p>
+        <p>Optimizado para Meta Ads, no solo para el feed.</p>
       </div>
     </div>
   </section>
@@ -867,12 +941,10 @@
   <!-- SOBRE DANIELA -->
   <section id="sobre">
     <div class="sobre-inner fade-in">
-      <div class="sobre-img"><img src="daniela-sobre.jpg" alt="Daniela Barrera" /></div>
+      <div class="sobre-img"><img src="assets/daniela-sobre.jpg" alt="Daniela Barrera" /></div>
       <div class="sobre-content">
         <h2 class="sobre-title">Soy Daniela Barrera</h2>
-        <p class="sobre-bio">Trabajo con marcas de belleza, lifestyle, viajes y gastronomía para elevar su imagen y transformar visualizaciones en acciones reales.<br><br>
-        Cada marca llega con un objetivo claro — más ventas, posicionamiento, visitas o comunidad — y desarrollo una narrativa estratégica que conecta, genera deseo y convierte.<br><br>
-        No creo solo videos; creo contenido con intención. Cada producción tiene un enfoque definido, integrando dirección creativa, edición avanzada y herramientas de IA para potenciar resultados.</p>
+        <p class="sobre-bio">Creo contenido con intención para marcas de belleza, lifestyle, viajes y gastronomía — cada video tiene un solo objetivo: convertir.</p>
         <div class="stats-row">
           <div class="stat">
             <span class="stat-num" data-target="18000" data-prefix="" data-suffix=""></span>
@@ -943,68 +1015,6 @@
         <span>Té Hindu</span><span>·</span>
         <span>Speedmax</span><span>·</span>
       </div>
-    </div>
-  </section>
-
-  <!-- REELS CARRUSEL -->
-  <section id="reels">
-    <h2 class="section-title fade-in">Trabajos reales. Marcas reales.</h2>
-    <div class="carousel-outer">
-      <div class="carousel-track-wrap">
-        <div class="carousel-track" id="carouselTrack">
-
-          <!-- Slide 1: Temu -->
-          <div class="reel-slide">
-            <div class="reel-frame-wrap">
-              <iframe class="reel-frame" src="https://www.instagram.com/reel/DTIpZE4kWCh/embed" title="Temu reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-0">
-                <span class="reel-placeholder-name">Temu</span>
-                <a href="https://www.instagram.com/reel/DTIpZE4kWCh/" target="_blank" rel="noopener">Ver reel ↗</a>
-              </div>
-            </div>
-            <div class="reel-info">
-              <span class="reel-brand">Temu</span>
-              <span class="reel-desc">Campaña de múltiples productos — formato probado para pauta</span>
-            </div>
-          </div>
-
-          <!-- Slide 2: Brunch House -->
-          <div class="reel-slide">
-            <div class="reel-frame-wrap">
-              <iframe class="reel-frame" src="https://www.instagram.com/reel/DV8_KcHlb7D/embed" title="Brunch House reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-bh">
-                <span class="reel-placeholder-name">Brunch House</span>
-                <a href="https://www.instagram.com/reel/DV8_KcHlb7D/" target="_blank" rel="noopener">Ver reel ↗</a>
-              </div>
-            </div>
-            <div class="reel-info">
-              <span class="reel-brand">Brunch House</span>
-              <span class="reel-desc">95.702 visualizaciones · 7.273 interacciones</span>
-            </div>
-          </div>
-
-          <!-- Slide 3: Primos Cybermarket -->
-          <div class="reel-slide">
-            <div class="reel-frame-wrap">
-              <iframe class="reel-frame" src="https://www.instagram.com/p/DWUGZtPkcQI/embed" title="Primos Cybermarket" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-1">
-                <span class="reel-placeholder-name">Primos Cybermarket</span>
-                <a href="https://www.instagram.com/p/DWUGZtPkcQI/" target="_blank" rel="noopener">Ver reel ↗</a>
-              </div>
-            </div>
-            <div class="reel-info">
-              <span class="reel-brand">Primos Cybermarket</span>
-              <span class="reel-desc">Video de producto — campaña de conversión</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">&#8592;</button>
-      <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">&#8594;</button>
-
-      <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </section>
 
