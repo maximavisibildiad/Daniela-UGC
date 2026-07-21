@@ -21,14 +21,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #FAF8F5;
-      --bg2: #F2EDE8;
-      --rose-pale: #EACFC8;
-      --rose: #D4A5A0;
-      --rose-deep: #C97F6E;
-      --pastel-yellow: #F6E3B4;
-      --pastel-pink: #F3C9BC;
-      --pastel-beige: #EADFC4;
+      --bg: #FBF4EB;
+      --bg2: #FBF4EB;
+      --rose-pale: #FBD9E5;
+      --rose: #F283AF;
+      --rose-deep: #C43670;
+      --pastel-yellow: #F3CC97;
+      --pastel-pink: #FBD9E5;
+      --pastel-beige: #FBF4EB;
       --text: #2C2C2C;
       --muted: #7A6E6E;
       --white: #FFFFFF;
@@ -77,7 +77,7 @@
       padding: 10px 22px;
       border-radius: 100px;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(201, 127, 110, 0.35);
+      box-shadow: 0 4px 14px rgba(242, 131, 175, 0.35);
       transition: opacity 0.2s, transform 0.2s;
     }
     .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -102,10 +102,10 @@
       inset: 0;
       background: linear-gradient(
         to right,
-        rgba(242,237,232,0.97) 0%,
-        rgba(242,237,232,0.88) 28%,
-        rgba(242,237,232,0.35) 50%,
-        rgba(242,237,232,0.05) 68%,
+        rgba(251,244,235,0.97) 0%,
+        rgba(251,244,235,0.88) 28%,
+        rgba(251,244,235,0.35) 50%,
+        rgba(251,244,235,0.05) 68%,
         transparent 100%
       );
       z-index: 0;
@@ -168,7 +168,7 @@
       border-radius: 100px;
       text-decoration: none;
       margin-top: 36px;
-      box-shadow: 0 6px 20px rgba(201, 127, 110, 0.4);
+      box-shadow: 0 6px 20px rgba(242, 131, 175, 0.4);
       transition: opacity 0.2s, transform 0.2s;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.4s;
@@ -374,6 +374,14 @@
       box-shadow: 0 2px 24px rgba(44,44,44,0.06);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
+      overflow: hidden;
+    }
+    .price-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(to right, var(--rose), var(--rose-deep));
     }
     .price-card:hover {
       transform: translateY(-6px);
@@ -387,7 +395,7 @@
 
     .price-badge {
       display: inline-block;
-      background: var(--rose-deep);
+      background: var(--rose);
       color: var(--white);
       font-size: 11px;
       font-weight: 500;
@@ -398,12 +406,28 @@
       margin-bottom: 20px;
     }
 
-    .price-card h3 {
+    .price-count {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .price-count-num {
+      font-family: 'Sequel Sans', 'DM Sans', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--rose-deep);
+      line-height: 1;
+    }
+
+    .price-count-label {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
+      font-size: 19px;
       font-weight: 500;
       color: var(--text);
-      margin-bottom: 12px;
+      line-height: 1.15;
     }
 
     .price-desc {
@@ -448,7 +472,7 @@
       padding: 14px;
       border-radius: 100px;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(201, 127, 110, 0.3);
+      box-shadow: 0 4px 14px rgba(242, 131, 175, 0.3);
       transition: opacity 0.2s, transform 0.2s;
     }
     .btn-price:hover { opacity: 0.88; transform: translateY(-1px); }
@@ -612,7 +636,7 @@
 
     /* ── CTA FINAL ── */
     #cta {
-      background: linear-gradient(to bottom, var(--pastel-pink), var(--rose-deep));
+      background: linear-gradient(to bottom, var(--rose), var(--rose-deep));
       padding: 120px 60px;
       text-align: center;
     }
@@ -717,7 +741,7 @@
       padding: 14px 26px;
       border-radius: 100px;
       text-decoration: none;
-      box-shadow: 0 4px 24px rgba(212, 165, 160, 0.45);
+      box-shadow: 0 4px 24px rgba(242, 131, 175, 0.45);
       opacity: 0;
       transform: translateY(10px);
       pointer-events: none;
@@ -748,32 +772,43 @@
     }
 
     .resultados-grid {
-      display: flex;
-      gap: 0;
-      justify-content: center;
-      align-items: flex-start;
-      max-width: 900px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
     .resultado-item {
       text-align: center;
-      flex: 1;
-      padding: 0 40px;
+      background: var(--white);
+      border: 1.5px solid var(--rose-pale);
+      border-radius: 20px;
+      padding: 40px 28px 32px;
+      box-shadow: 0 8px 30px rgba(44,44,44,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .resultado-item + .resultado-item {
-      border-left: 1px solid var(--rose-pale);
+    .resultado-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(44,44,44,0.1);
+    }
+
+    .resultado-icon {
+      font-size: 20px;
+      color: var(--rose);
+      display: block;
+      margin-bottom: 16px;
     }
 
     .resultado-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 68px;
+      font-size: 60px;
       font-weight: 400;
-      color: var(--rose);
+      color: var(--rose-deep);
       display: block;
       line-height: 1;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .resultado-label {
@@ -793,10 +828,10 @@
         border-radius: 28px;
         background: radial-gradient(
           85% 75% at 50% 35%,
-          rgba(242,237,232,0.95) 0%,
-          rgba(242,237,232,0.9) 55%,
-          rgba(242,237,232,0.6) 78%,
-          rgba(242,237,232,0.15) 92%,
+          rgba(251,244,235,0.95) 0%,
+          rgba(251,244,235,0.9) 55%,
+          rgba(251,244,235,0.6) 78%,
+          rgba(251,244,235,0.15) 92%,
           transparent 100%
         );
       }
@@ -815,9 +850,8 @@
       .stats-row { gap: 28px; flex-wrap: wrap; }
 
       #resultados { padding: 60px 24px; }
-      .resultados-grid { flex-direction: column; gap: 36px; }
-      .resultado-item { padding: 0; border-left: none !important; border-top: 1px solid var(--rose-pale); padding-top: 36px; }
-      .resultado-item:first-child { border-top: none; padding-top: 0; }
+      .resultados-grid { grid-template-columns: 1fr; gap: 20px; }
+      .resultado-item { padding: 32px 24px 28px; }
       .resultado-num { font-size: 52px; }
 
       #marcas { padding: 48px 0; }
@@ -853,8 +887,8 @@
     <canvas class="particles-canvas" id="particlesCanvas"></canvas>
     <div class="hero-inner">
       <div class="hero-left">
-        <h1 class="hero-headline">Quieres que tu marca venda más — yo creo el video que lo hace posible</h1>
-        <p class="hero-sub">Estudio tu producto, identifico los dolores de tu cliente ideal y diseño un guión que convierte — no uno que se ve bonito. Grabo, edito y te entrego el video listo para publicar.</p>
+        <h1 class="hero-headline">El guion que convierte a quien ve tu contenido en alguien que compra — no en alguien que solo hace scroll</h1>
+        <p class="hero-sub">Se produce, se edita y se entrega listo para pauta.</p>
         <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20recibir%20mi%20asesor%C3%ADa" target="_blank" rel="noopener" class="btn-hero">Recibe mi asesoría</a>
         <p class="hero-price-hint">Desde $450.000 por video</p>
       </div>
@@ -975,14 +1009,17 @@
     <h2 class="section-title fade-in">Números reales, marcas reales</h2>
     <div class="resultados-grid">
       <div class="resultado-item fade-in">
+        <span class="resultado-icon">✦</span>
         <span class="resultado-num">+142K</span>
         <span class="resultado-label">visualizaciones<br>en un solo reel orgánico</span>
       </div>
       <div class="resultado-item fade-in">
+        <span class="resultado-icon">✦</span>
         <span class="resultado-num">95K</span>
         <span class="resultado-label">visualizaciones<br>Brunch House</span>
       </div>
       <div class="resultado-item fade-in">
+        <span class="resultado-icon">✦</span>
         <span class="resultado-num">7.273</span>
         <span class="resultado-label">interacciones totales<br>Brunch House · tasa ~7.6%</span>
       </div>
@@ -1033,7 +1070,7 @@
 
       <!-- Card 1 -->
       <div class="price-card fade-in">
-        <h3>1 Video UGC</h3>
+        <div class="price-count"><span class="price-count-num">1</span><span class="price-count-label">Video<br>UGC</span></div>
         <p class="price-desc">Ideal para probar el formato o una campaña puntual.</p>
         <div class="price-divider"></div>
         <span class="price-cop">$450.000 COP</span>
@@ -1044,7 +1081,7 @@
       <!-- Card 2 — Destacado -->
       <div class="price-card featured fade-in">
         <span class="price-badge">Más elegido</span>
-        <h3>3 Videos UGC</h3>
+        <div class="price-count"><span class="price-count-num">3</span><span class="price-count-label">Videos<br>UGC</span></div>
         <p class="price-desc">Para campañas con mayor alcance y consistencia de mensaje.</p>
         <div class="price-divider"></div>
         <span class="price-cop">$1.500.000 COP</span>
@@ -1054,7 +1091,7 @@
 
       <!-- Card 3 -->
       <div class="price-card fade-in">
-        <h3>6 Videos UGC</h3>
+        <div class="price-count"><span class="price-count-num">6</span><span class="price-count-label">Videos<br>UGC</span></div>
         <p class="price-desc">Estrategia de contenido sostenida para marcas que buscan presencia real.</p>
         <div class="price-divider"></div>
         <span class="price-cop">$3.000.000 COP</span>
