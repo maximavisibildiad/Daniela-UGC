@@ -197,18 +197,24 @@
     .valor-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
+      gap: 28px;
       max-width: 1100px;
       margin: 0 auto;
     }
 
     .valor-card {
       text-align: center;
+      background: var(--white);
+      border: 1.5px solid var(--rose-pale);
+      border-radius: 20px;
+      padding: 40px 28px;
+      box-shadow: 0 8px 30px rgba(44,44,44,0.06);
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
     }
     .valor-card.visible { opacity: 1; transform: translateY(0); }
+    .valor-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(44,44,44,0.1); }
     .valor-card:nth-child(2) { transition-delay: 0.15s; }
     .valor-card:nth-child(3) { transition-delay: 0.3s; }
 
@@ -841,7 +847,7 @@
 
       #valor { padding: 72px 24px; }
       .section-title { font-size: 34px; }
-      .valor-grid { grid-template-columns: 1fr; gap: 36px; }
+      .valor-grid { grid-template-columns: 1fr; gap: 20px; }
 
       #sobre { padding: 72px 24px; }
       .sobre-inner { flex-direction: column; gap: 40px; }
