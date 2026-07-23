@@ -365,12 +365,27 @@
       margin-bottom: 64px;
     }
 
-    .precios-grid {
+    .precios-categories {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 28px;
       max-width: 1100px;
-      margin: 0 auto 40px;
+      margin: 0 auto 28px;
+      align-items: stretch;
+    }
+
+    .precios-secondary {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto 28px;
+      align-items: stretch;
+    }
+
+    .price-featured-wrap {
+      max-width: 1100px;
+      margin: 0 auto 28px;
     }
 
     .price-card {
@@ -381,6 +396,8 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
     .price-card::before {
       content: '';
@@ -409,61 +426,162 @@
       text-transform: uppercase;
       padding: 5px 14px;
       border-radius: 100px;
-      margin-bottom: 20px;
-    }
-
-    .price-count {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-top: 8px;
       margin-bottom: 16px;
+      align-self: flex-start;
     }
 
-    .price-count-num {
-      font-family: 'Sequel Sans', 'DM Sans', sans-serif;
-      font-size: 52px;
-      font-weight: 700;
-      color: var(--rose-deep);
-      line-height: 1;
-    }
-
-    .price-count-label {
+    .price-card-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 19px;
+      font-size: 25px;
       font-weight: 500;
       color: var(--text);
-      line-height: 1.15;
+      margin-bottom: 8px;
+      line-height: 1.2;
     }
 
     .price-desc {
       font-size: 14px;
       color: var(--muted);
       line-height: 1.65;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
     }
 
-    .price-divider {
-      height: 1px;
-      background: var(--rose-pale);
-      margin-bottom: 24px;
+    .price-rows {
+      border-top: 1px solid var(--rose-pale);
+      margin-top: 16px;
     }
 
-    .price-cop {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rose-pale);
+    }
+
+    .price-row-label {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .price-row-sub {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
       font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .price-row-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 23px;
+      color: var(--rose-deep);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .price-subtitle {
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--rose-deep);
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 2px;
+    }
+
+    .price-note {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      background: var(--pastel-beige);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-top: 20px;
+    }
+
+    .price-featured-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-bottom: 8px;
+    }
+
+    .price-featured-value {
+      font-family: 'Sequel Sans', 'DM Sans', sans-serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--rose-deep);
+      line-height: 1;
+    }
+
+    .price-checklist {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 28px;
+      margin: 20px 0 4px;
+    }
+
+    .price-checklist li {
+      font-size: 14.5px;
+      color: var(--text);
+      display: flex;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .price-checklist li::before {
+      content: '✓';
+      color: var(--rose);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .incluye-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .incluye-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .incluye-icon {
+      color: var(--rose);
+      font-size: 15px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .incluye-item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
       color: var(--text);
       display: block;
-      line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 2px;
     }
 
-    .price-usd {
-      font-size: 14px;
+    .incluye-item-desc {
+      font-size: 12.5px;
       color: var(--muted);
-      margin-bottom: 28px;
-      display: block;
+      line-height: 1.55;
+    }
+
+    .precio-notas {
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.9;
     }
 
     .btn-price {
@@ -480,6 +598,7 @@
       text-decoration: none;
       box-shadow: 0 4px 14px rgba(242, 131, 175, 0.3);
       transition: opacity 0.2s, transform 0.2s;
+      margin-top: 24px;
     }
     .btn-price:hover { opacity: 0.88; transform: translateY(-1px); }
 
@@ -864,7 +983,9 @@
       .marcas-title { font-size: 28px; padding: 0 24px; }
 
       #precios { padding: 72px 24px; }
-      .precios-grid { grid-template-columns: 1fr; gap: 20px; }
+      .precios-categories { grid-template-columns: 1fr; gap: 20px; }
+      .precios-secondary { grid-template-columns: 1fr; gap: 20px; }
+      .price-checklist { grid-template-columns: 1fr; }
       .section-sub { margin-bottom: 40px; }
 
       #reels { padding: 72px 24px; }
@@ -1071,41 +1192,165 @@
   <!-- PRECIOS -->
   <section id="precios">
     <h2 class="section-title fade-in">Invierte en contenido que tiene estrategia</h2>
-    <p class="section-sub fade-in">Precios de referencia. Cada proyecto se adapta a tu objetivo — cotiza por WhatsApp.</p>
-    <div class="precios-grid">
+    <p class="section-sub fade-in">Precios de referencia en COP. Cada proyecto se adapta a tu objetivo — cotiza por WhatsApp.</p>
 
-      <!-- Card 1 -->
+    <div class="precios-categories">
+
+      <!-- Categoría 1: UGC sin publicación -->
       <div class="price-card fade-in">
-        <div class="price-count"><span class="price-count-num">1</span><span class="price-count-label">Video<br>UGC</span></div>
-        <p class="price-desc">Ideal para probar el formato o una campaña puntual.</p>
-        <div class="price-divider"></div>
-        <span class="price-cop">$450.000 COP</span>
-        <span class="price-usd">~$107 USD</span>
-        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20de%201%20video%20UGC" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
+        <span class="price-badge">UGC</span>
+        <h3 class="price-card-title">Sin publicación</h3>
+        <p class="price-desc">Video vertical listo para uso publicitario.</p>
+        <div class="price-rows">
+          <div class="price-row">
+            <span class="price-row-label">1 Video</span>
+            <span class="price-row-value">$450.000</span>
+          </div>
+          <div class="price-row">
+            <span class="price-row-label">3 Videos</span>
+            <span class="price-row-value">$1.200.000</span>
+          </div>
+          <div class="price-row">
+            <span class="price-row-label">6 Videos</span>
+            <span class="price-row-value">$2.200.000</span>
+          </div>
+        </div>
+        <p class="price-note">El contenido RAW se incluye únicamente en el paquete de 6 videos.</p>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20UGC%20sin%20publicaci%C3%B3n" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
       </div>
 
-      <!-- Card 2 — Destacado -->
+      <!-- Categoría 2: UGC + publicación -->
       <div class="price-card featured fade-in">
         <span class="price-badge">Más elegido</span>
-        <div class="price-count"><span class="price-count-num">3</span><span class="price-count-label">Videos<br>UGC</span></div>
-        <p class="price-desc">Para campañas con mayor alcance y consistencia de mensaje.</p>
-        <div class="price-divider"></div>
-        <span class="price-cop">$1.500.000 COP</span>
-        <span class="price-usd">~$357 USD</span>
-        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20de%203%20videos%20UGC" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="price-card fade-in">
-        <div class="price-count"><span class="price-count-num">6</span><span class="price-count-label">Videos<br>UGC</span></div>
-        <p class="price-desc">Estrategia de contenido sostenida para marcas que buscan presencia real.</p>
-        <div class="price-divider"></div>
-        <span class="price-cop">$3.000.000 COP</span>
-        <span class="price-usd">~$714 USD</span>
-        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20de%206%20videos%20UGC" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
+        <h3 class="price-card-title">UGC + Publicación en Instagram o TikTok</h3>
+        <p class="price-desc">Video + publicación en mis redes.</p>
+        <div class="price-rows">
+          <div class="price-row">
+            <span class="price-row-label">1 Video + Publicación</span>
+            <span class="price-row-value">$680.000</span>
+          </div>
+          <div class="price-row">
+            <span class="price-row-label">3 Videos + Publicación<span class="price-row-sub">$650.000 c/u</span></span>
+            <span class="price-row-value">$1.950.000</span>
+          </div>
+          <div class="price-row">
+            <span class="price-row-label">6 Videos + Publicación<span class="price-row-sub">$600.000 c/u</span></span>
+            <span class="price-row-value">$3.600.000</span>
+          </div>
+        </div>
+        <p class="price-subtitle">Extras</p>
+        <div class="price-row">
+          <span class="price-row-label">Story extra<span class="price-row-sub">por cada story adicional</span></span>
+          <span class="price-row-value">+$400.000</span>
+        </div>
+        <div class="price-row">
+          <span class="price-row-label">Reel compartido<span class="price-row-sub">publicación del reel en mis redes</span></span>
+          <span class="price-row-value">+$500.000</span>
+        </div>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20UGC%20%2B%20publicaci%C3%B3n" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
       </div>
 
     </div>
+
+    <!-- Paquete especial Meta Ads -->
+    <div class="price-featured-wrap">
+      <div class="price-card featured fade-in">
+        <span class="price-badge">Paquete especial</span>
+        <div class="price-featured-header">
+          <h3 class="price-card-title">Paquete especial Meta Ads</h3>
+          <span class="price-featured-value">$1.200.000</span>
+        </div>
+        <p class="price-desc">Paquete completo para campañas de alto rendimiento.</p>
+        <ul class="price-checklist">
+          <li>6 hooks diferentes</li>
+          <li>1 mismo cuerpo del video</li>
+          <li>Tomas de apoyo (B-roll)</li>
+          <li>4 CTAs diferentes</li>
+          <li>6 videos editados con variaciones de hook</li>
+          <li>Tomas en crudo (RAW) para crear más variaciones</li>
+          <li>Estrategia de contenido para Meta Ads</li>
+        </ul>
+        <p class="price-note">El contenido RAW está incluido en este paquete.</p>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20especial%20de%20Meta%20Ads" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
+      </div>
+    </div>
+
+    <div class="precios-secondary">
+
+      <!-- Fotos UGC -->
+      <div class="price-card fade-in">
+        <span class="price-badge">Fotos</span>
+        <h3 class="price-card-title">Fotos UGC</h3>
+        <div class="price-rows">
+          <div class="price-row">
+            <span class="price-row-label">3 Fotos</span>
+            <span class="price-row-value">$300.000</span>
+          </div>
+          <div class="price-row">
+            <span class="price-row-label">6 Fotos</span>
+            <span class="price-row-value">$750.000</span>
+          </div>
+          <div class="price-row">
+            <span class="price-row-label">15 Fotos</span>
+            <span class="price-row-value">$1.100.000</span>
+          </div>
+        </div>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20de%20fotos%20UGC" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
+      </div>
+
+      <!-- Qué incluye cada paquete -->
+      <div class="price-card fade-in">
+        <h3 class="price-card-title">¿Qué incluye cada paquete?</h3>
+        <div class="incluye-list">
+          <div class="incluye-item">
+            <span class="incluye-icon">✦</span>
+            <div>
+              <span class="incluye-item-title">Grabación</span>
+              <span class="incluye-item-desc">Producción de contenido con equipos profesionales y enfoque publicitario.</span>
+            </div>
+          </div>
+          <div class="incluye-item">
+            <span class="incluye-icon">✦</span>
+            <div>
+              <span class="incluye-item-title">Edición</span>
+              <span class="incluye-item-desc">Edición profesional vertical optimizada para redes y anuncios.</span>
+            </div>
+          </div>
+          <div class="incluye-item">
+            <span class="incluye-icon">✦</span>
+            <div>
+              <span class="incluye-item-title">Estrategia</span>
+              <span class="incluye-item-desc">Enfoque estratégico para conectar con tu audiencia y lograr resultados.</span>
+            </div>
+          </div>
+          <div class="incluye-item">
+            <span class="incluye-icon">✦</span>
+            <div>
+              <span class="incluye-item-title">Propuesta de guion</span>
+              <span class="incluye-item-desc">Desarrollo de guion creativo alineado con los objetivos de tu marca.</span>
+            </div>
+          </div>
+          <div class="incluye-item">
+            <span class="incluye-icon">✦</span>
+            <div>
+              <span class="incluye-item-title">Locación</span>
+              <span class="incluye-item-desc">Selección de locación ideal para el tipo de contenido.</span>
+            </div>
+          </div>
+          <div class="incluye-item">
+            <span class="incluye-icon">✦</span>
+            <div>
+              <span class="incluye-item-title">Contenido RAW</span>
+              <span class="incluye-item-desc">Entregado únicamente en los paquetes de 6 videos y Meta Ads.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="precio-notas fade-in">Los tiempos de entrega varían según el tipo de proyecto y volumen · Incluye hasta 2 rondas de cambios de edición · Valores en COP, no incluyen desplazamiento fuera de la ciudad · Para proyectos personalizados o de mayor volumen, escríbenos y cotizamos.</p>
+
     <div class="precio-custom fade-in">
       <p>¿Buscas una colaboración o contrato mensual? Hablemos.</p>
       <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20hablar%20sobre%20una%20colaboraci%C3%B3n%20o%20contrato%20mensual" target="_blank" rel="noopener" class="btn-custom">Solicitar propuesta personalizada →</a>
