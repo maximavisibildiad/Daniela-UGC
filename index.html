@@ -181,7 +181,7 @@
 
     /* ── VALUE PROPS ── */
     #valor {
-      background: var(--pastel-yellow);
+      background: var(--bg);
       padding: 100px 60px;
     }
 
@@ -241,7 +241,7 @@
 
     /* ── SOBRE DANIELA ── */
     #sobre {
-      background: var(--pastel-pink);
+      background: var(--bg);
       padding: 100px 60px;
     }
 
@@ -353,7 +353,7 @@
 
     /* ── PRECIOS ── */
     #precios {
-      background: var(--pastel-yellow);
+      background: var(--bg);
       padding: 100px 60px;
     }
 
@@ -529,10 +529,29 @@
       font-size: 12.5px;
       color: var(--muted);
       line-height: 1.6;
-      background: var(--pastel-beige);
+      background: var(--rose-pale);
       border-radius: 12px;
       padding: 12px 16px;
       margin-top: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .price-note::before {
+      content: 'ℹ';
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--rose);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-style: normal;
+      line-height: 1;
     }
 
     .price-featured-header {
@@ -1064,7 +1083,7 @@
 
       <!-- Categoría 1: UGC sin publicación -->
       <div class="price-card fade-in">
-        <span class="price-badge">UGC</span>
+        <span class="price-badge">👤 UGC</span>
         <h3 class="price-card-title">Sin publicación</h3>
         <p class="price-desc">Video vertical listo para uso publicitario.</p>
         <div class="price-rows">
@@ -1095,7 +1114,7 @@
 
       <!-- Categoría 2: UGC + publicación -->
       <div class="price-card featured fade-in">
-        <span class="price-badge">Más elegido</span>
+        <span class="price-badge">📸 Más elegido</span>
         <h3 class="price-card-title">UGC + Publicación en Instagram o TikTok</h3>
         <p class="price-desc">Video + publicación en mis redes.</p>
         <div class="price-rows">
@@ -1137,7 +1156,7 @@
     <!-- Paquete especial Meta Ads -->
     <div class="price-featured-wrap">
       <div class="price-card featured fade-in">
-        <span class="price-badge">Paquete especial</span>
+        <span class="price-badge">⭐ Paquete especial</span>
         <div class="price-featured-header">
           <h3 class="price-card-title">Paquete especial Meta Ads</h3>
           <span class="price-featured-value">$1.200.000</span>
@@ -1161,7 +1180,7 @@
 
       <!-- Fotos UGC -->
       <div class="price-card fade-in">
-        <span class="price-badge">Fotos</span>
+        <span class="price-badge">📷 Fotos</span>
         <h3 class="price-card-title">Fotos UGC</h3>
         <div class="price-rows">
           <div class="price-tier">
@@ -1193,42 +1212,42 @@
         <h3 class="price-card-title">¿Qué incluye cada paquete?</h3>
         <div class="incluye-list">
           <div class="incluye-item">
-            <span class="incluye-icon">✦</span>
+            <span class="incluye-icon">🎥</span>
             <div>
               <span class="incluye-item-title">Grabación</span>
               <span class="incluye-item-desc">Producción de contenido con equipos profesionales y enfoque publicitario.</span>
             </div>
           </div>
           <div class="incluye-item">
-            <span class="incluye-icon">✦</span>
+            <span class="incluye-icon">🎬</span>
             <div>
               <span class="incluye-item-title">Edición</span>
               <span class="incluye-item-desc">Edición profesional vertical optimizada para redes y anuncios.</span>
             </div>
           </div>
           <div class="incluye-item">
-            <span class="incluye-icon">✦</span>
+            <span class="incluye-icon">🎯</span>
             <div>
               <span class="incluye-item-title">Estrategia</span>
               <span class="incluye-item-desc">Enfoque estratégico para conectar con tu audiencia y lograr resultados.</span>
             </div>
           </div>
           <div class="incluye-item">
-            <span class="incluye-icon">✦</span>
+            <span class="incluye-icon">📝</span>
             <div>
               <span class="incluye-item-title">Propuesta de guion</span>
               <span class="incluye-item-desc">Desarrollo de guion creativo alineado con los objetivos de tu marca.</span>
             </div>
           </div>
           <div class="incluye-item">
-            <span class="incluye-icon">✦</span>
+            <span class="incluye-icon">📍</span>
             <div>
               <span class="incluye-item-title">Locación</span>
               <span class="incluye-item-desc">Selección de locación ideal para el tipo de contenido.</span>
             </div>
           </div>
           <div class="incluye-item">
-            <span class="incluye-icon">✦</span>
+            <span class="incluye-icon">📁</span>
             <div>
               <span class="incluye-item-title">Contenido RAW</span>
               <span class="incluye-item-desc">Entregado únicamente en los paquetes de 6 videos y Meta Ads.</span>
@@ -1314,17 +1333,17 @@
     <h2 class="section-title fade-in">Lo que voy a hacer por tu marca</h2>
     <div class="valor-grid">
       <div class="valor-card">
-        <span class="valor-icon">✦</span>
+        <span class="valor-icon">📝</span>
         <h3>Guión que vende, no que suena bonito</h3>
         <p>Un solo objetivo: que quien lo vea, actúe.</p>
       </div>
       <div class="valor-card">
-        <span class="valor-icon">✦</span>
+        <span class="valor-icon">🎬</span>
         <h3>Producción completa, entregada lista</h3>
         <p>Grabado, editado y listo para publicar. Sin vueltas.</p>
       </div>
       <div class="valor-card">
-        <span class="valor-icon">✦</span>
+        <span class="valor-icon">🎯</span>
         <h3>Hecho para funcionar en pauta</h3>
         <p>Optimizado para Meta Ads, no solo para el feed.</p>
       </div>
@@ -1361,17 +1380,17 @@
     <h2 class="section-title fade-in">Números reales, marcas reales</h2>
     <div class="resultados-grid">
       <div class="resultado-item fade-in">
-        <span class="resultado-icon">✦</span>
+        <span class="resultado-icon">👁</span>
         <span class="resultado-num">+142K</span>
         <span class="resultado-label">visualizaciones<br>en un solo reel orgánico</span>
       </div>
       <div class="resultado-item fade-in">
-        <span class="resultado-icon">✦</span>
+        <span class="resultado-icon">👁</span>
         <span class="resultado-num">95K</span>
         <span class="resultado-label">visualizaciones<br>Brunch House</span>
       </div>
       <div class="resultado-item fade-in">
-        <span class="resultado-icon">✦</span>
+        <span class="resultado-icon">💬</span>
         <span class="resultado-num">7.273</span>
         <span class="resultado-label">interacciones totales<br>Brunch House · tasa ~7.6%</span>
       </div>
