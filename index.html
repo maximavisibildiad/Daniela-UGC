@@ -492,6 +492,39 @@
       margin-bottom: 2px;
     }
 
+    .price-tier {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rose-pale);
+    }
+    .price-tier:last-child { border-bottom: none; }
+
+    .price-tier .price-row {
+      padding: 0;
+      border-bottom: none;
+      margin-bottom: 12px;
+    }
+
+    .price-tier-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--white);
+      font-weight: 500;
+      text-decoration: none;
+      background: var(--rose-deep);
+      border-radius: 100px;
+      padding: 9px 18px;
+      box-shadow: 0 3px 10px rgba(242, 131, 175, 0.35);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .price-tier-cta:hover {
+      background: var(--rose);
+      transform: translateY(-1px);
+      box-shadow: 0 5px 14px rgba(242, 131, 175, 0.45);
+    }
+
     .price-note {
       font-size: 12.5px;
       color: var(--muted);
@@ -1035,21 +1068,29 @@
         <h3 class="price-card-title">Sin publicación</h3>
         <p class="price-desc">Video vertical listo para uso publicitario.</p>
         <div class="price-rows">
-          <div class="price-row">
-            <span class="price-row-label">1 Video</span>
-            <span class="price-row-value">$450.000</span>
+          <div class="price-tier">
+            <div class="price-row">
+              <span class="price-row-label">1 Video</span>
+              <span class="price-row-value">$450.000</span>
+            </div>
+            <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%201%20video%20UGC%20sin%20publicaci%C3%B3n" target="_blank" rel="noopener" class="price-tier-cta">Quiero 1 video →</a>
           </div>
-          <div class="price-row">
-            <span class="price-row-label">3 Videos</span>
-            <span class="price-row-value">$1.200.000</span>
+          <div class="price-tier">
+            <div class="price-row">
+              <span class="price-row-label">3 Videos</span>
+              <span class="price-row-value">$1.200.000</span>
+            </div>
+            <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20el%20paquete%20de%203%20videos%20UGC%20sin%20publicaci%C3%B3n" target="_blank" rel="noopener" class="price-tier-cta">Quiero 3 videos →</a>
           </div>
-          <div class="price-row">
-            <span class="price-row-label">6 Videos</span>
-            <span class="price-row-value">$2.200.000</span>
+          <div class="price-tier">
+            <div class="price-row">
+              <span class="price-row-label">6 Videos</span>
+              <span class="price-row-value">$2.200.000</span>
+            </div>
+            <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20el%20paquete%20de%206%20videos%20UGC%20sin%20publicaci%C3%B3n" target="_blank" rel="noopener" class="price-tier-cta">Quiero 6 videos →</a>
           </div>
         </div>
         <p class="price-note">El contenido RAW se incluye únicamente en el paquete de 6 videos.</p>
-        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20UGC%20sin%20publicaci%C3%B3n" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
       </div>
 
       <!-- Categoría 2: UGC + publicación -->
@@ -1058,17 +1099,26 @@
         <h3 class="price-card-title">UGC + Publicación en Instagram o TikTok</h3>
         <p class="price-desc">Video + publicación en mis redes.</p>
         <div class="price-rows">
-          <div class="price-row">
-            <span class="price-row-label">1 Video + Publicación</span>
-            <span class="price-row-value">$680.000</span>
+          <div class="price-tier">
+            <div class="price-row">
+              <span class="price-row-label">1 Video + Publicación</span>
+              <span class="price-row-value">$680.000</span>
+            </div>
+            <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%201%20video%20%2B%20publicaci%C3%B3n" target="_blank" rel="noopener" class="price-tier-cta">Quiero 1 video + publicación →</a>
           </div>
-          <div class="price-row">
-            <span class="price-row-label">3 Videos + Publicación<span class="price-row-sub">$650.000 c/u</span></span>
-            <span class="price-row-value">$1.950.000</span>
+          <div class="price-tier">
+            <div class="price-row">
+              <span class="price-row-label">3 Videos + Publicación<span class="price-row-sub">$650.000 c/u</span></span>
+              <span class="price-row-value">$1.950.000</span>
+            </div>
+            <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20el%20paquete%20de%203%20videos%20%2B%20publicaci%C3%B3n" target="_blank" rel="noopener" class="price-tier-cta">Quiero 3 videos + publicación →</a>
           </div>
-          <div class="price-row">
-            <span class="price-row-label">6 Videos + Publicación<span class="price-row-sub">$600.000 c/u</span></span>
-            <span class="price-row-value">$3.600.000</span>
+          <div class="price-tier">
+            <div class="price-row">
+              <span class="price-row-label">6 Videos + Publicación<span class="price-row-sub">$600.000 c/u</span></span>
+              <span class="price-row-value">$3.600.000</span>
+            </div>
+            <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20el%20paquete%20de%206%20videos%20%2B%20publicaci%C3%B3n" target="_blank" rel="noopener" class="price-tier-cta">Quiero 6 videos + publicación →</a>
           </div>
         </div>
         <p class="price-subtitle">Extras</p>
@@ -1080,7 +1130,6 @@
           <span class="price-row-label">Reel compartido<span class="price-row-sub">publicación del reel en mis redes</span></span>
           <span class="price-row-value">+$500.000</span>
         </div>
-        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20UGC%20%2B%20publicaci%C3%B3n" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
       </div>
 
     </div>
@@ -1104,7 +1153,7 @@
           <li>Estrategia de contenido para Meta Ads</li>
         </ul>
         <p class="price-note">El contenido RAW está incluido en este paquete.</p>
-        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20especial%20de%20Meta%20Ads" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20el%20paquete%20especial%20de%20Meta%20Ads" target="_blank" rel="noopener" class="btn-price">Quiero el paquete Meta Ads</a>
       </div>
     </div>
 
@@ -1115,20 +1164,28 @@
         <span class="price-badge">Fotos</span>
         <h3 class="price-card-title">Fotos UGC</h3>
         <div class="price-rows">
-          <div class="price-row">
-            <span class="price-row-label">3 Fotos</span>
-            <span class="price-row-value">$300.000</span>
+          <div class="price-tier">
+            <div class="price-row">
+              <span class="price-row-label">3 Fotos</span>
+              <span class="price-row-value">$300.000</span>
+            </div>
+            <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20el%20paquete%20de%203%20fotos%20UGC" target="_blank" rel="noopener" class="price-tier-cta">Quiero 3 fotos →</a>
           </div>
-          <div class="price-row">
-            <span class="price-row-label">6 Fotos</span>
-            <span class="price-row-value">$750.000</span>
+          <div class="price-tier">
+            <div class="price-row">
+              <span class="price-row-label">6 Fotos</span>
+              <span class="price-row-value">$750.000</span>
+            </div>
+            <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20el%20paquete%20de%206%20fotos%20UGC" target="_blank" rel="noopener" class="price-tier-cta">Quiero 6 fotos →</a>
           </div>
-          <div class="price-row">
-            <span class="price-row-label">15 Fotos</span>
-            <span class="price-row-value">$1.100.000</span>
+          <div class="price-tier">
+            <div class="price-row">
+              <span class="price-row-label">15 Fotos</span>
+              <span class="price-row-value">$1.100.000</span>
+            </div>
+            <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20el%20paquete%20de%2015%20fotos%20UGC" target="_blank" rel="noopener" class="price-tier-cta">Quiero 15 fotos →</a>
           </div>
         </div>
-        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20me%20interesa%20el%20paquete%20de%20fotos%20UGC" target="_blank" rel="noopener" class="btn-price">Cotizar este paquete</a>
       </div>
 
       <!-- Qué incluye cada paquete -->
