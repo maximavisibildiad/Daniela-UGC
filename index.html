@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daniela Barrera — Creadora UGC & Estratega Digital</title>
+  <title>Daniela Barrera | Creadora de contenido y estratega digital</title>
   <meta name="description" content="Contenido auténtico que convierte marcas en experiencias" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="assets/hero-gafas.webp" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,26 +30,34 @@
     body { font-family: var(--sans); background: var(--crema); color: var(--tinta); overflow-x: hidden; line-height: 1.5; }
     img { display: block; max-width: 100%; }
     a:focus-visible, button:focus-visible { outline: 3px solid var(--vino); outline-offset: 3px; }
-    #hero a:focus-visible, #valor a:focus-visible, #cta a:focus-visible, footer a:focus-visible, .price-card a:focus-visible, nav a:focus-visible { outline-color: var(--crema); }
+    .hero-redes a:focus-visible, #valor a:focus-visible, #cta a:focus-visible, footer a:focus-visible, .price-card a:focus-visible, nav a:focus-visible { outline-color: var(--crema); }
 
-    /* NAV: barra vinotinto */
-    nav { position: fixed; inset: 0 0 auto 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px clamp(16px, 4vw, 56px); background: var(--vino); }
-    .nav-brand { font-weight: 800; font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--crema); text-decoration: none; white-space: nowrap; }
-    .nav-cta, .btn-hero, .btn-cta, .sticky-cta, .price-tier-cta, .btn-price { display: inline-flex; align-items: center; justify-content: center; border-radius: 100px; font-weight: 700; text-decoration: none; transition: background-color .2s, color .2s; }
-    .nav-cta { background: var(--crema); color: var(--vino); font-size: 13px; padding: 9px 18px; white-space: nowrap; flex-shrink: 0; }
-    .nav-cta:hover { background: #fff; }
+    /* NAV: barra vinotinto con enlaces */
+    nav { position: fixed; inset: 0 0 auto 0; z-index: 100; background: var(--vino); }
+    .nav-links { list-style: none; display: flex; justify-content: space-evenly; align-items: center; max-width: 1240px; margin: 0 auto; padding: 0 12px; }
+    .nav-links a { display: block; padding: 20px 8px; font-size: 14px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--crema); text-decoration: none; }
+    .nav-links a:hover { text-decoration: underline; text-underline-offset: 6px; }
+    .btn-hero, .btn-cta, .sticky-cta, .price-tier-cta, .btn-price { display: inline-flex; align-items: center; justify-content: center; border-radius: 100px; font-weight: 700; text-decoration: none; transition: background-color .2s, color .2s; }
 
-    /* HERO: foto a todo el ancho */
-    #hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; padding: 120px clamp(16px, 6vw, 96px) clamp(48px, 9vh, 96px); background: var(--vino-oscuro); overflow: hidden; }
-    .hero-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 30%; }
-    #hero::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(46, 7, 10, .9) 0%, rgba(46, 7, 10, .62) 38%, rgba(46, 7, 10, 0) 64%), linear-gradient(0deg, rgba(46, 7, 10, .55), rgba(46, 7, 10, 0) 40%); }
-    .hero-left { position: relative; z-index: 2; max-width: min(600px, 48vw); color: var(--crema); }
-    .hero-firma { font-family: var(--serif); font-style: italic; font-size: clamp(30px, 3vw, 40px); line-height: 1; }
-    .hero-headline { font-weight: 800; font-size: clamp(32px, 3.5vw, 52px); line-height: 1.06; letter-spacing: -0.025em; margin-top: 14px; }
-    .hero-sub { font-size: 18px; margin-top: 20px; opacity: .92; }
-    .btn-hero { background: var(--crema); color: var(--vino); font-size: 16px; height: 52px; padding: 0 36px; margin-top: 28px; }
-    .btn-hero:hover { background: #fff; }
-    .hero-price-hint { display: inline-block; font-size: 13px; font-weight: 500; border: 1px solid var(--linea-clara); border-radius: 100px; padding: 5px 14px; margin-top: 14px; }
+    /* HERO: foto a todo el ancho con el nombre */
+    #hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; justify-content: center; padding: 120px 16px clamp(40px, 7vh, 72px); background: #E4DFDD; overflow: hidden; }
+    .hero-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+    #hero::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(46, 7, 10, .55) 0%, rgba(46, 7, 10, .18) 38%, rgba(46, 7, 10, 0) 55%); }
+    .hero-centro { position: relative; z-index: 2; text-align: center; color: #fff; }
+    .hero-nombre { font-weight: 700; font-size: clamp(52px, 8.4vw, 124px); line-height: 1; letter-spacing: -0.035em; text-shadow: 0 2px 24px rgba(46, 7, 10, .25); }
+    .hero-rol { font-style: italic; font-weight: 400; font-size: clamp(20px, 2.6vw, 38px); line-height: 1.2; margin-top: 6px; text-shadow: 0 1px 14px rgba(46, 7, 10, .3); }
+    .hero-chips { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px clamp(14px, 3vw, 44px); margin-top: 28px; }
+    .hero-chips li { background: #fff; color: var(--tinta); font-size: clamp(13px, 1.3vw, 18px); font-weight: 700; text-transform: uppercase; padding: 9px clamp(22px, 3vw, 44px); border-radius: 100px; }
+    .hero-redes { display: flex; justify-content: center; gap: 18px; margin-top: 26px; }
+    .hero-redes a { display: grid; place-items: center; width: 42px; height: 42px; border: 1.5px solid #fff; border-radius: 50%; color: #fff; }
+    .hero-redes svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+    /* INTRO: la propuesta y el botón, debajo del hero */
+    #intro { padding: 80px clamp(16px, 5vw, 60px) 0; text-align: center; }
+    .intro-texto { font-weight: 800; font-size: clamp(28px, 3.4vw, 46px); line-height: 1.08; letter-spacing: -0.03em; max-width: 900px; margin: 0 auto; }
+    .btn-hero { background: var(--vino); color: var(--crema); font-size: 16px; height: 54px; padding: 0 38px; margin-top: 30px; }
+    .btn-hero:hover { background: var(--vino-oscuro); }
+    .hero-price-hint { font-size: 14px; color: var(--gris); margin-top: 14px; }
 
     /* TÍTULOS */
     .section-title, .sobre-title, .marcas-title { font-weight: 800; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.05; letter-spacing: -0.03em; text-align: center; color: var(--tinta); }
@@ -89,6 +97,9 @@
     .incluye-icon { flex-shrink: 0; }
     .incluye-item-title { display: block; font-size: 17px; font-weight: 700; }
     .incluye-item-desc { font-size: 14px; opacity: .85; }
+    .derechos-card { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; }
+    .derechos-card .price-card-title { margin: 0; }
+    .derechos-card small { font-size: 18px; font-weight: 500; letter-spacing: 0; }
     .precio-notas { max-width: 800px; margin: 0 auto 32px; text-align: center; font-size: 14px; color: var(--gris); }
     .precio-custom { text-align: center; }
     .precio-custom p { font-family: var(--serif); font-style: italic; font-size: 26px; margin-bottom: 12px; }
@@ -174,9 +185,8 @@
     .footer-links a { font-size: 14px; color: var(--crema); }
 
     /* CTA FIJO */
-    .sticky-cta { position: fixed; right: 20px; bottom: 20px; z-index: 90; background: var(--vino); color: var(--crema); font-size: 14px; padding: 14px 24px; border: 1.5px solid var(--crema); box-shadow: 0 6px 20px rgba(28, 21, 22, .35); visibility: hidden; opacity: 0; transition: opacity .3s, background-color .2s; }
+    .sticky-cta { position: fixed; right: 20px; bottom: 20px; z-index: 90; background: var(--vino); color: var(--crema); font-size: 14px; padding: 14px 24px; border: 1.5px solid var(--crema); box-shadow: 0 6px 20px rgba(28, 21, 22, .35); transition: background-color .2s; }
     .sticky-cta:hover { background: var(--vino-oscuro); }
-    .sticky-cta.visible { visibility: visible; opacity: 1; }
 
     @media (max-width: 960px) {
       .reels-fila { justify-content: flex-start; }
@@ -185,14 +195,15 @@
     }
 
     @media (max-width: 768px) {
-      #hero { flex-direction: column; align-items: stretch; min-height: 0; padding: 84px 16px 0; background: var(--vino); }
-      #hero::before { display: none; }
-      .hero-left { max-width: none; }
-      .hero-headline { font-size: 31px; }
-      .hero-sub { font-size: 16px; margin-top: 14px; }
-      .btn-hero { margin-top: 20px; width: 100%; }
-      .hero-foto { position: relative; inset: auto; order: 2; width: calc(100% + 32px); max-width: none; height: 340px; margin: 28px -16px 0; object-position: 55% 25%; }
-      .nav-brand { font-size: 13px; letter-spacing: .1em; }
+      .nav-links { justify-content: space-between; }
+      .nav-links a { font-size: 11px; letter-spacing: .12em; padding: 17px 4px; }
+      #hero { min-height: 0; height: min(88svh, 720px); padding-bottom: 36px; }
+      .hero-foto { object-position: 52% 18%; }
+      .hero-chips { gap: 8px; margin-top: 20px; }
+      .hero-chips li { padding: 7px 14px; }
+      #intro { padding-top: 64px; }
+      .btn-hero { width: 100%; }
+      .sticky-cta { right: 16px; bottom: 16px; }
       .precios-categories, .precios-secondary, .valor-grid, .resultados-grid { grid-template-columns: 1fr; }
       .valor-grid { gap: 36px; }
       .price-card { padding: 28px 20px; }
@@ -221,27 +232,43 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav>
-    <a href="#hero" class="nav-brand">Daniela Barrera</a>
-    <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20mi%20video" target="_blank" rel="noopener" class="nav-cta">Agenda tu video</a>
+  <nav aria-label="Secciones">
+    <ul class="nav-links">
+      <li><a href="#sobre">About</a></li>
+      <li><a href="#precios">Services</a></li>
+      <li><a href="#reels">Portfolio</a></li>
+      <li><a href="#cta">Contact</a></li>
+    </ul>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
     <img class="hero-foto" src="assets/hero-gafas.webp" alt="Daniela Barrera con gafas y blazer vinotinto" width="1536" height="1024" />
-    <div class="hero-left">
-      <p class="hero-firma" aria-hidden="true">Dani</p>
-      <h1 class="hero-headline">El guion que convierte a quien ve tu contenido en alguien que compra — no en alguien que solo hace scroll</h1>
-      <p class="hero-sub">Se produce, se edita y se entrega listo para pauta.</p>
-      <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20mi%20video" target="_blank" rel="noopener" class="btn-hero">Agenda tu video</a>
-      <p class="hero-price-hint">Desde $450.000 por video</p>
+    <div class="hero-centro">
+      <h1 class="hero-nombre">Daniela Barrera</h1>
+      <p class="hero-rol">Creadora de contenido y estratega digital.</p>
+      <ul class="hero-chips">
+        <li>Colombia</li>
+        <li>5 años de experiencia</li>
+        <li>Creativa digital</li>
+      </ul>
+      <div class="hero-redes">
+        <a href="https://www.instagram.com/danimuart/" target="_blank" rel="noopener" aria-label="Instagram de Daniela"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a>
+      </div>
     </div>
+  </section>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <p class="intro-texto">El guion que convierte a quien ve tu contenido en alguien que compra, no en alguien que solo hace scroll.</p>
+    <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20mi%20video" target="_blank" rel="noopener" class="btn-hero">Agenda tu video</a>
+    <p class="hero-price-hint">Desde $500.000 por video</p>
   </section>
 
   <!-- PRECIOS -->
   <section id="precios">
     <h2 class="section-title fade-in">Invierte en contenido que tiene estrategia</h2>
-    <p class="section-sub fade-in">Precios de referencia en COP. Cada proyecto se adapta a tu objetivo — cotiza por WhatsApp.</p>
+    <p class="section-sub fade-in">Precios de referencia en COP. Cada proyecto se adapta a tu objetivo. Cotiza por WhatsApp.</p>
 
     <div class="precios-categories">
 
@@ -254,7 +281,7 @@
           <div class="price-tier">
             <div class="price-row">
               <span class="price-row-label">1 Video</span>
-              <span class="price-row-value">$450.000</span>
+              <span class="price-row-value">$500.000</span>
             </div>
             <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%201%20video%20UGC%20sin%20publicaci%C3%B3n" target="_blank" rel="noopener" class="price-tier-cta">Quiero 1 video →</a>
           </div>
@@ -311,7 +338,7 @@
         </div>
         <div class="price-row">
           <span class="price-row-label">Reel compartido<span class="price-row-sub">publicación del reel en mis redes</span></span>
-          <span class="price-row-value">+$500.000</span>
+          <span class="price-row-value">+$799.999</span>
         </div>
       </div>
 
@@ -422,6 +449,13 @@
 
     </div>
 
+    <div class="price-featured-wrap" id="derechos">
+      <div class="price-card derechos-card">
+        <h3 class="price-card-title">Derechos de uso de imagen</h3>
+        <span class="price-featured-value">$200.000 <small>/ mes</small></span>
+        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20cotizar%20los%20derechos%20de%20uso%20de%20imagen" target="_blank" rel="noopener" class="price-tier-cta">Quiero los derechos de uso</a>
+      </div>
+    </div>
     <p class="precio-notas fade-in">Los tiempos de entrega varían según el tipo de proyecto y volumen · Incluye hasta 2 rondas de cambios de edición · Valores en COP, no incluyen desplazamiento fuera de la ciudad · Para proyectos personalizados o de mayor volumen, escríbenos y cotizamos.</p>
 
     <div class="precio-custom fade-in">
@@ -437,7 +471,7 @@
         <article class="reel">
           <div class="phone"><span class="notch"></span><div class="pantalla"><iframe src="https://www.instagram.com/reel/DTIpZE4kWCh/embed" title="Temu reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe></div></div>
           <h3 class="reel-brand">Temu</h3>
-          <p class="reel-desc">Campaña de múltiples productos — formato probado para pauta</p>
+          <p class="reel-desc">Campaña de múltiples productos, formato probado para pauta</p>
           <a class="reel-link" href="https://www.instagram.com/reel/DTIpZE4kWCh/" target="_blank" rel="noopener">Ver reel ↗</a>
         </article>
         <article class="reel">
@@ -449,7 +483,7 @@
         <article class="reel">
           <div class="phone"><span class="notch"></span><div class="pantalla"><iframe src="https://www.instagram.com/p/DWUGZtPkcQI/embed" title="Primos Cybermarket reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe></div></div>
           <h3 class="reel-brand">Primos Cybermarket</h3>
-          <p class="reel-desc">Video de producto — campaña de conversión</p>
+          <p class="reel-desc">Video de producto para campaña de conversión</p>
           <a class="reel-link" href="https://www.instagram.com/p/DWUGZtPkcQI/" target="_blank" rel="noopener">Ver reel ↗</a>
         </article>
     </div>
@@ -489,7 +523,7 @@
       </div>
       <div class="sobre-content">
         <h2 class="sobre-title">Soy Daniela Barrera</h2>
-        <p class="sobre-bio">Creo contenido con intención para marcas de belleza, lifestyle, viajes y gastronomía — cada video tiene un solo objetivo: convertir.</p>
+        <p class="sobre-bio">Creo contenido con intención para marcas de belleza, lifestyle, viajes y gastronomía. Cada video tiene un solo objetivo: convertir.</p>
         <div class="sobre-mini">
           <figure><img src="assets/dani-portatil.webp" alt="Daniela mirando por encima de un portátil" loading="lazy" /></figure>
           <figure><img src="assets/dani-camara.webp" alt="Daniela grabando con una cámara de video" loading="lazy" /></figure>
@@ -555,15 +589,5 @@
     </div>
   </footer>
 
-  <script>
-    /* El botón fijo aparece cuando el hero sale de pantalla */
-    (function () {
-      var btn = document.getElementById('stickyCta');
-      var hero = document.getElementById('hero');
-      function tick() { btn.classList.toggle('visible', hero.getBoundingClientRect().bottom < 0); }
-      window.addEventListener('scroll', tick, { passive: true });
-      tick();
-    })();
-  </script>
 </body>
 </html>
