@@ -7,86 +7,79 @@
   <meta name="description" content="Contenido auténtico que convierte marcas en experiencias" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400&family=DM+Sans:wght@400;500;700&family=Pinyon+Script&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="assets/hero-dani.webp" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/hero-gafas.webp" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --crema: #FFFEF8;
-      --papel: #F2F1EB;
-      --rosa: #FFD4E9;
-      --cafe: #623E2A;
-      --cafe-suave: #6F5141;
-      --topo: #766A62;
-      --borde: #3C3333;
-      --linea: rgba(98, 62, 42, 0.22);
-      --script: 'Pinyon Script', cursive;
-      --didona: 'Bodoni Moda', 'Times New Roman', serif;
-      --texto: 'DM Sans', system-ui, sans-serif;
+      --vino: #5A0F14;
+      --vino-oscuro: #3E0A0E;
+      --crema: #FBF6EE;
+      --papel: #F3ECE1;
+      --tinta: #1C1516;
+      --gris: #6B5E5C;
+      --cuero: #1E1A1A;
+      --linea: rgba(28, 21, 22, 0.16);
+      --linea-clara: rgba(251, 246, 238, 0.24);
+      --sans: 'Inter Tight', system-ui, sans-serif;
+      --serif: 'Instrument Serif', 'Times New Roman', serif;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
-    body { font-family: var(--texto); background: var(--crema); color: var(--cafe); overflow-x: hidden; line-height: 1.5; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    body { font-family: var(--sans); background: var(--crema); color: var(--tinta); overflow-x: hidden; line-height: 1.5; }
     img { display: block; max-width: 100%; }
-    a:focus-visible, button:focus-visible { outline: 3px solid var(--cafe); outline-offset: 3px; }
-    #hero a:focus-visible, #cta a:focus-visible, footer a:focus-visible { outline-color: var(--rosa); }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--vino); outline-offset: 3px; }
+    #hero a:focus-visible, #valor a:focus-visible, #cta a:focus-visible, footer a:focus-visible, .price-card a:focus-visible, nav a:focus-visible { outline-color: var(--crema); }
 
-    /* NAV */
-    nav { position: fixed; inset: 0 0 auto 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 10px clamp(16px, 4vw, 56px); background: rgba(255, 254, 248, 0.96); border-bottom: 1px solid var(--linea); }
-    .nav-brand { font-family: var(--script); font-size: 32px; line-height: 1.2; color: var(--cafe); text-decoration: none; }
-    .nav-cta, .btn-hero, .btn-cta, .sticky-cta, .price-tier-cta, .btn-price { display: inline-flex; align-items: center; justify-content: center; border-radius: 100px; font-weight: 500; text-decoration: none; transition: background-color .2s, color .2s; }
-    .nav-cta, .sticky-cta, .price-tier-cta, .btn-price { background: var(--cafe); color: var(--crema); }
-    .nav-cta:hover, .sticky-cta:hover, .price-tier-cta:hover, .btn-price:hover { background: var(--borde); }
-    .nav-cta { font-size: 14px; padding: 10px 20px; white-space: nowrap; flex-shrink: 0; }
-    .nav-brand { white-space: nowrap; }
+    /* NAV: barra vinotinto */
+    nav { position: fixed; inset: 0 0 auto 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px clamp(16px, 4vw, 56px); background: var(--vino); }
+    .nav-brand { font-weight: 800; font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--crema); text-decoration: none; white-space: nowrap; }
+    .nav-cta, .btn-hero, .btn-cta, .sticky-cta, .price-tier-cta, .btn-price { display: inline-flex; align-items: center; justify-content: center; border-radius: 100px; font-weight: 700; text-decoration: none; transition: background-color .2s, color .2s; }
+    .nav-cta { background: var(--crema); color: var(--vino); font-size: 13px; padding: 9px 18px; white-space: nowrap; flex-shrink: 0; }
+    .nav-cta:hover { background: #fff; }
 
-    /* HERO */
-    #hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 110px clamp(16px, 6vw, 96px) 64px; background: radial-gradient(60% 90% at 88% 30%, #8B7E75 0%, var(--topo) 70%); overflow: hidden; }
-    .hero-foto { position: absolute; right: 0; bottom: 0; height: 100%; width: auto; max-width: none; }
-    .hero-left { position: relative; z-index: 2; max-width: min(610px, 46vw); }
-    .hero-firma { display: flex; align-items: center; gap: 14px; font-family: var(--script); font-size: clamp(64px, 7vw, 104px); line-height: 1.1; color: var(--rosa); }
-    .hero-firma img { width: 54px; height: auto; }
-    .hero-headline { font-family: var(--didona); font-weight: 500; font-size: clamp(32px, 3.4vw, 50px); line-height: 1.14; color: var(--rosa); margin-top: 10px; }
-    .hero-sub { font-size: 18px; color: var(--crema); margin-top: 22px; }
-    .btn-hero { background: var(--rosa); color: var(--cafe); font-size: 16px; height: 52px; padding: 0 38px; margin-top: 28px; }
-    .btn-hero:hover { background: var(--crema); }
-    .hero-price-hint { font-size: 14px; color: var(--crema); margin-top: 12px; }
-    @keyframes aparecer { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-    .hero-left > * { animation: aparecer .7s ease both; }
-    .hero-left > :nth-child(2) { animation-delay: .1s; } .hero-left > :nth-child(3) { animation-delay: .2s; }
-    .hero-left > :nth-child(4) { animation-delay: .3s; } .hero-left > :nth-child(5) { animation-delay: .4s; }
+    /* HERO: foto a todo el ancho */
+    #hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; padding: 120px clamp(16px, 6vw, 96px) clamp(48px, 9vh, 96px); background: var(--vino-oscuro); overflow: hidden; }
+    .hero-foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 30%; }
+    #hero::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(46, 7, 10, .9) 0%, rgba(46, 7, 10, .62) 38%, rgba(46, 7, 10, 0) 64%), linear-gradient(0deg, rgba(46, 7, 10, .55), rgba(46, 7, 10, 0) 40%); }
+    .hero-left { position: relative; z-index: 2; max-width: min(600px, 48vw); color: var(--crema); }
+    .hero-firma { font-family: var(--serif); font-style: italic; font-size: clamp(30px, 3vw, 40px); line-height: 1; }
+    .hero-headline { font-weight: 800; font-size: clamp(32px, 3.5vw, 52px); line-height: 1.06; letter-spacing: -0.025em; margin-top: 14px; }
+    .hero-sub { font-size: 18px; margin-top: 20px; opacity: .92; }
+    .btn-hero { background: var(--crema); color: var(--vino); font-size: 16px; height: 52px; padding: 0 36px; margin-top: 28px; }
+    .btn-hero:hover { background: #fff; }
+    .hero-price-hint { display: inline-block; font-size: 13px; font-weight: 500; border: 1px solid var(--linea-clara); border-radius: 100px; padding: 5px 14px; margin-top: 14px; }
 
     /* TÍTULOS */
-    .section-title, .sobre-title, .marcas-title { font-family: var(--script); font-weight: 400; font-size: clamp(50px, 6.4vw, 88px); line-height: 1.12; text-align: center; color: var(--cafe); }
-    .section-title { max-width: 980px; margin: 0 auto 20px; }
-    .section-sub { text-align: center; font-size: 15px; color: var(--cafe-suave); max-width: 620px; margin: 0 auto 56px; }
+    .section-title, .sobre-title, .marcas-title { font-weight: 800; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.05; letter-spacing: -0.03em; text-align: center; color: var(--tinta); }
+    .section-title { max-width: 900px; margin: 0 auto 20px; }
+    .section-sub { text-align: center; font-size: 16px; color: var(--gris); max-width: 620px; margin: 0 auto 56px; }
 
-    /* PRECIOS */
-    #precios { padding: 96px clamp(16px, 5vw, 60px); }
-    .precios-categories, .precios-secondary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; max-width: 1080px; margin: 0 auto 36px; align-items: start; }
-    .price-featured-wrap { max-width: 1080px; margin: 0 auto 36px; }
-    .price-card { position: relative; display: flex; flex-direction: column; background: var(--papel); padding: 36px; border-left: 1.5px solid var(--borde); border-bottom: 1.5px solid var(--borde); }
-    .price-card.featured { background: var(--rosa); }
-    .price-card .clip { position: absolute; top: -22px; right: 30px; width: 30px; height: 84px; fill: none; stroke: var(--cafe); stroke-width: 2.4; stroke-linecap: round; }
-    .price-card .estrella { position: absolute; top: -34px; left: -26px; width: 76px; height: auto; }
-    .price-badge { align-self: flex-start; font-size: 13px; font-weight: 500; background: var(--crema); color: var(--cafe); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px; }
-    .price-card .estrella + .price-badge { margin-left: 34px; }
-    .price-card-title { font-family: var(--didona); font-weight: 500; font-size: 28px; line-height: 1.18; color: var(--cafe); margin-bottom: 8px; }
-    .price-desc { font-size: 15px; color: var(--cafe-suave); }
-    .price-rows { border-top: 1px solid var(--linea); margin-top: 18px; }
-    .price-tier { padding: 16px 0; border-bottom: 1px solid var(--linea); }
+    /* PRECIOS: tarjetas vinotinto */
+    #precios { padding: 104px clamp(16px, 5vw, 60px); }
+    .precios-categories, .precios-secondary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1080px; margin: 0 auto 28px; align-items: start; }
+    .price-featured-wrap { max-width: 1080px; margin: 0 auto 28px; }
+    .price-card { position: relative; display: flex; flex-direction: column; background: var(--vino); color: var(--crema); padding: 36px; border-radius: 18px; }
+    .price-card .clip { position: absolute; top: -26px; right: 34px; width: 30px; height: 84px; fill: none; stroke: #B9B2AC; stroke-width: 3; stroke-linecap: round; }
+    .price-badge { align-self: flex-start; font-size: 13px; font-weight: 700; background: var(--crema); color: var(--vino); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px; }
+    .price-card-title { font-weight: 800; font-size: 27px; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .price-desc { font-size: 15px; opacity: .85; }
+    .price-rows { border-top: 1px solid var(--linea-clara); margin-top: 18px; }
+    .price-tier { padding: 16px 0; border-bottom: 1px solid var(--linea-clara); }
     .price-tier:last-child { border-bottom: 0; }
-    .price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--linea); }
+    .price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--linea-clara); }
     .price-tier .price-row { padding: 0; border: 0; margin-bottom: 12px; }
-    .price-row-label { font-size: 15px; font-weight: 500; }
-    .price-row-sub { display: block; font-size: 13px; font-weight: 400; color: var(--cafe-suave); margin-top: 2px; }
-    .price-row-value { font-family: var(--didona); font-size: 25px; white-space: nowrap; flex-shrink: 0; }
+    .price-row-label { font-size: 15px; font-weight: 700; }
+    .price-row-sub { display: block; font-size: 13px; font-weight: 400; opacity: .8; margin-top: 2px; }
+    .price-row-value { font-weight: 800; font-size: 24px; letter-spacing: -0.02em; white-space: nowrap; flex-shrink: 0; }
+    .price-tier-cta, .btn-price { background: var(--crema); color: var(--vino); }
+    .price-tier-cta:hover, .btn-price:hover { background: #fff; }
     .price-tier-cta { font-size: 14px; padding: 9px 18px; }
     .price-subtitle { font-size: 14px; font-weight: 700; margin-top: 24px; }
-    .price-note { font-size: 14px; color: var(--cafe); background: var(--crema); padding: 12px 16px; margin-top: 18px; }
+    .price-note { font-size: 14px; background: rgba(251, 246, 238, .1); border-radius: 10px; padding: 12px 16px; margin-top: 18px; }
     .price-featured-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; }
-    .price-featured-value { font-family: var(--didona); font-size: 42px; line-height: 1; }
+    .price-featured-value { font-weight: 800; font-size: 44px; line-height: 1; letter-spacing: -0.03em; }
     .price-checklist { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 28px; margin: 20px 0 4px; }
     .price-checklist li { display: flex; gap: 10px; font-size: 15px; }
     .price-checklist li::before { content: '✓'; font-weight: 700; flex-shrink: 0; }
@@ -94,119 +87,133 @@
     .incluye-list { display: grid; gap: 14px; margin-top: 14px; }
     .incluye-item { display: flex; gap: 12px; }
     .incluye-icon { flex-shrink: 0; }
-    .incluye-item-title { display: block; font-family: var(--didona); font-size: 18px; font-weight: 500; }
-    .incluye-item-desc { font-size: 14px; color: var(--cafe-suave); }
-    .precio-notas { max-width: 800px; margin: 0 auto 32px; text-align: center; font-size: 14px; color: var(--cafe-suave); }
+    .incluye-item-title { display: block; font-size: 17px; font-weight: 700; }
+    .incluye-item-desc { font-size: 14px; opacity: .85; }
+    .precio-notas { max-width: 800px; margin: 0 auto 32px; text-align: center; font-size: 14px; color: var(--gris); }
     .precio-custom { text-align: center; }
-    .precio-custom p { font-family: var(--didona); font-size: 22px; margin-bottom: 12px; }
-    .btn-custom { font-size: 15px; font-weight: 500; color: var(--cafe); }
+    .precio-custom p { font-family: var(--serif); font-style: italic; font-size: 26px; margin-bottom: 12px; }
+    .btn-custom { font-size: 15px; font-weight: 700; color: var(--vino); }
 
-    /* REELS: celulares rosados */
-    #reels { padding: 96px 0; background: var(--papel); }
+    /* REELS: celulares negros */
+    #reels { padding: 104px 0; background: var(--papel); }
     #reels .section-title { padding: 0 16px; margin-bottom: 48px; }
     .reels-fila { display: flex; justify-content: center; gap: 36px; padding: 8px clamp(16px, 5vw, 60px) 16px; overflow-x: auto; scroll-snap-type: x mandatory; }
     .reel { flex: 0 0 300px; scroll-snap-align: center; text-align: center; }
-    .phone { position: relative; height: 530px; padding: 11px; background: var(--rosa); border: 2px solid var(--borde); border-radius: 44px; }
-    .notch { position: absolute; z-index: 2; top: 11px; left: 50%; transform: translateX(-50%); width: 100px; height: 18px; background: var(--rosa); border-radius: 0 0 12px 12px; }
-    .pantalla { height: 100%; overflow: hidden; border-radius: 32px; background: var(--crema); }
+    .phone { position: relative; height: 530px; padding: 10px; background: var(--cuero); border-radius: 46px; box-shadow: 0 24px 40px -18px rgba(28, 21, 22, .45); }
+    .notch { position: absolute; z-index: 2; top: 18px; left: 50%; transform: translateX(-50%); width: 84px; height: 22px; background: var(--cuero); border-radius: 20px; }
+    .pantalla { height: 100%; overflow: hidden; border-radius: 36px; background: var(--crema); }
     .pantalla iframe { width: 100%; height: calc(100% + 64px); margin-top: -58px; border: 0; display: block; }
-    .reel-brand { font-family: var(--didona); font-weight: 500; font-size: 26px; margin-top: 18px; }
-    .reel-desc { font-size: 15px; color: var(--cafe-suave); margin-top: 4px; }
-    .reel-link { display: inline-block; font-size: 14px; font-weight: 500; color: var(--cafe); margin-top: 8px; }
+    .reel-brand { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; margin-top: 20px; }
+    .reel-desc { font-size: 15px; color: var(--gris); margin-top: 4px; }
+    .reel-link { display: inline-block; font-size: 14px; font-weight: 700; color: var(--vino); margin-top: 8px; }
 
-    /* VALOR */
-    #valor { padding: 88px clamp(16px, 5vw, 60px); background: var(--rosa); }
-    #valor .section-title { margin-bottom: 48px; }
-    .valor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1080px; margin: 0 auto; }
+    /* VALOR: franja vinotinto con libretas de espiral */
+    #valor { padding: 96px clamp(16px, 5vw, 60px); background: var(--vino); }
+    #valor .section-title { color: var(--crema); margin-bottom: 52px; }
+    .valor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1040px; margin: 0 auto; }
+    .valor-card { position: relative; background: #fff; color: var(--tinta); padding: 40px 26px 30px; border-radius: 6px; text-align: center; box-shadow: 0 16px 30px -18px rgba(0, 0, 0, .6); }
+    .valor-card::before { content: ''; position: absolute; top: -9px; left: 18px; right: 18px; height: 22px; background: radial-gradient(circle at 50% 70%, var(--vino) 0 4px, transparent 4.5px) 0 0 / 18px 22px repeat-x, repeating-linear-gradient(90deg, transparent 0 7px, #8F8A86 7px 10px, transparent 10px 18px) 0 0 / 100% 13px no-repeat; }
     .valor-icon { display: block; font-size: 26px; margin-bottom: 12px; }
-    .valor-card h3 { font-family: var(--didona); font-weight: 500; font-size: 26px; line-height: 1.2; margin-bottom: 10px; }
-    .valor-card p { font-size: 16px; }
+    .valor-card h3 { font-weight: 800; font-size: 21px; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .valor-card p { font-size: 15px; color: var(--gris); }
 
-    /* SOBRE */
-    #sobre { padding: 104px clamp(16px, 5vw, 60px); }
-    .sobre-inner { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr); gap: clamp(48px, 6vw, 88px); align-items: center; max-width: 1120px; margin: 0 auto; }
-    .polaroid-pila { position: relative; margin: 30px 14px 30px 20px; }
-    .polaroid-pila::before { content: ''; position: absolute; inset: 14px -14px -24px 16px; background: var(--papel); border-left: 1.5px solid var(--borde); border-bottom: 1.5px solid var(--borde); transform: rotate(4deg); }
-    .polaroid { position: relative; background: var(--papel); padding: 16px 16px 0; border-left: 1.5px solid var(--borde); border-bottom: 1.5px solid var(--borde); }
-    .polaroid img { width: 100%; aspect-ratio: 1 / 1.08; object-fit: cover; object-position: center 15%; }
-    .polaroid figcaption { font-family: var(--script); font-size: 42px; line-height: 1.5; color: var(--borde); padding: 8px 4px 10px; }
-    .polaroid-pila .clip { position: absolute; z-index: 2; top: -30px; right: 28px; width: 34px; height: 94px; fill: none; stroke: var(--borde); stroke-width: 2.2; stroke-linecap: round; }
-    .polaroid-pila .estrella { position: absolute; z-index: 2; top: -42px; left: -34px; width: 112px; height: auto; }
+    /* SOBRE: foto prensada en una agenda */
+    #sobre { padding: 104px clamp(16px, 5vw, 60px) 0; }
+    .sobre-inner { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: clamp(48px, 6vw, 88px); align-items: center; max-width: 1120px; margin: 0 auto; }
+    .agenda { position: relative; background: var(--cuero); border-radius: 16px; padding: 22px 22px 22px 46px; box-shadow: 0 26px 40px -22px rgba(28, 21, 22, .6); }
+    .agenda::before { content: ''; position: absolute; top: 34px; bottom: 34px; left: 18px; width: 18px; background: radial-gradient(circle, #C9C3BD 0 5px, transparent 5.5px) 0 0 / 18px 52px repeat-y; }
+    .agenda::after { content: ''; position: absolute; top: 50%; right: -14px; width: 28px; height: 64px; transform: translateY(-50%); background: var(--cuero); border-radius: 0 10px 10px 0; }
+    .polaroid { position: relative; background: #fff; padding: 16px 16px 0; border-radius: 4px; }
+    .polaroid img { width: 100%; aspect-ratio: 1 / 1.1; object-fit: cover; object-position: 50% 22%; }
+    .polaroid figcaption { font-family: var(--serif); font-style: italic; font-size: 30px; line-height: 1.4; color: var(--tinta); padding: 10px 4px 14px; }
+    .agenda .clip { position: absolute; z-index: 2; top: -34px; left: 50%; width: 34px; height: 94px; fill: none; stroke: #B9B2AC; stroke-width: 3; stroke-linecap: round; }
     .sobre-title { text-align: left; margin-bottom: 18px; }
     .sobre-bio { font-size: 18px; max-width: 54ch; }
-    .sobre-mini { display: flex; gap: 18px; margin: 28px 0; }
-    .sobre-mini figure { flex: 0 1 190px; background: var(--papel); padding: 8px 8px 26px; border-left: 1.5px solid var(--borde); border-bottom: 1.5px solid var(--borde); }
-    .sobre-mini img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-    .sobre-mini figure:nth-child(1) img { object-position: center 75%; }
-    .sobre-mini figure:nth-child(2) img { object-position: 62% 30%; }
-    .stats-row { display: flex; flex-wrap: wrap; gap: 20px 44px; }
-    .stat-num { display: block; font-family: var(--didona); font-weight: 500; font-size: 46px; line-height: 1.05; }
-    .stat-label { font-size: 14px; color: var(--cafe-suave); }
+    .sobre-mini { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 30px 0 0; }
+    .sobre-mini img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 8px; }
+    .sobre-mini figure:nth-child(1) img { object-position: 60% 30%; }
+    .sobre-mini figure:nth-child(2) img { object-position: 58% 40%; }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1120px; margin: 72px auto 0; background: var(--vino); color: var(--crema); border-radius: 14px; }
+    .stat { padding: 22px 16px; text-align: center; }
+    .stat + .stat { border-left: 1px solid var(--linea-clara); }
+    .stat-num { display: block; font-weight: 800; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em; }
+    .stat-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; opacity: .85; }
 
-    /* RESULTADOS */
-    #resultados { padding: 88px clamp(16px, 5vw, 60px); border-top: 1px solid var(--linea); }
-    #resultados .section-title { margin-bottom: 48px; }
+    /* RESULTADOS: sobre la foto de los ojos */
+    #resultados { padding: 96px clamp(16px, 5vw, 60px); margin-top: 104px; background: linear-gradient(rgba(40, 8, 10, .74), rgba(40, 8, 10, .74)), url('assets/dani-ojos.webp') center 40% / cover; color: var(--crema); }
+    #resultados .section-title { color: var(--crema); margin-bottom: 48px; }
     .resultados-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; text-align: center; }
-    .resultado-num { display: block; font-family: var(--didona); font-weight: 500; font-size: clamp(60px, 7vw, 92px); line-height: 1; }
-    .resultado-label { display: block; font-size: 15px; color: var(--cafe-suave); margin-top: 10px; }
+    .resultado-num { display: block; font-weight: 800; font-size: clamp(56px, 6.6vw, 88px); line-height: 1; letter-spacing: -0.04em; }
+    .resultado-label { display: block; font-size: 15px; margin-top: 10px; opacity: .9; }
 
-    /* MARCAS: nácar */
-    #marcas { position: relative; padding: 88px clamp(16px, 5vw, 60px); background: linear-gradient(rgba(70, 56, 47, .72), rgba(70, 56, 47, .72)), url('assets/nacar.webp') center / 720px; }
-    .marcas-title { color: var(--rosa); margin-bottom: 40px; }
-    .logos, .marcas-texto { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; max-width: 900px; margin: 0 auto; }
-    .logos { gap: 16px; }
-    .logo { width: 112px; height: 112px; background: #fff; border-radius: 14px; overflow: hidden; }
+    /* MARCAS */
+    #marcas { padding: 96px clamp(16px, 5vw, 60px); background: var(--crema); }
+    .marcas-title { margin-bottom: 40px; }
+    .logos, .marcas-texto { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; max-width: 920px; margin: 0 auto; }
+    .logos { gap: 14px; }
+    .logo { width: 112px; height: 112px; background: #fff; border: 1px solid var(--linea); border-radius: 14px; overflow: hidden; }
     .logo img { width: 100%; height: 100%; object-fit: contain; }
-    .logo.oscuro { background: var(--cafe); padding: 8px; }
-    .logo.negro { background: #141414; width: 200px; }
-    .logo.libre { background: transparent; }
-    .marcas-texto { gap: 8px 28px; margin-top: 32px; font-family: var(--didona); font-size: 20px; color: var(--rosa); }
+    .logo.oscuro { background: var(--vino); border-color: var(--vino); padding: 8px; }
+    .logo.negro { background: #141414; border-color: #141414; width: 200px; }
+    .logo.libre { background: transparent; border-color: transparent; }
+    .marcas-texto { gap: 8px 28px; margin-top: 32px; font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--vino); }
 
-    /* CTA */
-    #cta { padding: 104px clamp(16px, 5vw, 60px); background: var(--cafe); text-align: center; }
-    .cta-text { font-family: var(--didona); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.25; color: var(--rosa); max-width: 780px; margin: 0 auto 36px; }
-    .btn-cta { background: var(--rosa); color: var(--cafe); font-size: 16px; height: 56px; padding: 0 40px; max-width: 100%; }
-    .btn-cta:hover { background: var(--crema); }
+    /* CTA: contacto con foto */
+    #cta { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; background: var(--vino); }
+    .cta-foto { width: 100%; height: 100%; min-height: 520px; object-fit: cover; object-position: 50% 22%; }
+    .cta-cuerpo { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 80px clamp(24px, 6vw, 88px); }
+    .cta-text { font-weight: 800; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.08; letter-spacing: -0.03em; color: var(--crema); max-width: 560px; margin-bottom: 36px; }
+    .btn-cta { background: var(--crema); color: var(--vino); font-size: 16px; min-height: 56px; padding: 14px 36px; max-width: 100%; text-align: center; }
+    .btn-cta:hover { background: #fff; }
 
     /* FOOTER */
-    footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 32px clamp(16px, 5vw, 60px); background: var(--borde); color: var(--crema); }
-    .footer-brand-name { display: block; font-family: var(--script); font-size: 34px; line-height: 1.3; color: var(--rosa); }
-    .footer-tagline { font-size: 14px; }
+    footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 32px clamp(16px, 5vw, 60px); background: var(--vino-oscuro); color: var(--crema); }
+    .footer-brand-name { display: block; font-weight: 800; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; }
+    .footer-tagline { font-family: var(--serif); font-style: italic; font-size: 18px; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 12px 26px; }
     .footer-links a { font-size: 14px; color: var(--crema); }
 
     /* CTA FIJO */
-    .sticky-cta { position: fixed; right: 20px; bottom: 20px; z-index: 90; font-size: 14px; padding: 14px 24px; border: 1.5px solid var(--rosa); box-shadow: 0 6px 20px rgba(60, 51, 51, .3); visibility: hidden; opacity: 0; transition: opacity .3s, background-color .2s; }
+    .sticky-cta { position: fixed; right: 20px; bottom: 20px; z-index: 90; background: var(--vino); color: var(--crema); font-size: 14px; padding: 14px 24px; border: 1.5px solid var(--crema); box-shadow: 0 6px 20px rgba(28, 21, 22, .35); visibility: hidden; opacity: 0; transition: opacity .3s, background-color .2s; }
+    .sticky-cta:hover { background: var(--vino-oscuro); }
     .sticky-cta.visible { visibility: visible; opacity: 1; }
 
     @media (max-width: 960px) {
       .reels-fila { justify-content: flex-start; }
       .sobre-inner { grid-template-columns: 1fr; }
-      .polaroid-pila { max-width: 460px; width: calc(100% - 40px); margin-inline: auto; }
+      .agenda { max-width: 440px; width: calc(100% - 16px); margin-inline: auto; }
     }
 
     @media (max-width: 768px) {
-      #hero { flex-direction: column; align-items: stretch; min-height: 0; padding: 88px 16px 0; background: var(--topo); }
-      .nav-brand { font-size: 27px; }
-      .hero-foto { order: 2; }
-      .polaroid figcaption { font-size: 34px; white-space: nowrap; }
+      #hero { flex-direction: column; align-items: stretch; min-height: 0; padding: 84px 16px 0; background: var(--vino); }
+      #hero::before { display: none; }
       .hero-left { max-width: none; }
-      .hero-foto { position: relative; right: auto; height: 360px; margin: 24px 0 0 auto; transform: translateX(16px); object-fit: cover; object-position: right; width: calc(100vw + 0px); }
+      .hero-headline { font-size: 31px; }
+      .hero-sub { font-size: 16px; margin-top: 14px; }
+      .btn-hero { margin-top: 20px; width: 100%; }
+      .hero-foto { position: relative; inset: auto; order: 2; width: calc(100% + 32px); max-width: none; height: 340px; margin: 28px -16px 0; object-position: 55% 25%; }
+      .nav-brand { font-size: 13px; letter-spacing: .1em; }
       .precios-categories, .precios-secondary, .valor-grid, .resultados-grid { grid-template-columns: 1fr; }
+      .valor-grid { gap: 36px; }
       .price-card { padding: 28px 20px; }
-      .price-card .estrella { left: -8px; }
       .price-checklist { grid-template-columns: 1fr; }
-      .price-row-value { font-size: 22px; }
+      .price-row-value { font-size: 21px; }
       .sobre-title { text-align: center; }
-      .sobre-mini { justify-content: center; }
+      .sobre-bio { text-align: center; margin-inline: auto; }
+      .stats-row { margin-top: 56px; }
+      .stat { padding: 18px 6px; }
+      .stat-num { font-size: 26px; }
+      .stat-label { font-size: 10px; }
       .logo { width: 96px; height: 96px; }
       .logo.negro { width: 170px; }
+      #cta { grid-template-columns: 1fr; }
+      .cta-foto { min-height: 0; height: 380px; }
+      .cta-cuerpo { padding: 56px 16px 64px; align-items: stretch; }
       footer { flex-direction: column; align-items: flex-start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .hero-left > * { animation: none; }
       * { transition: none !important; }
     }
   </style>
@@ -221,9 +228,9 @@
 
   <!-- HERO -->
   <section id="hero">
-    <img class="hero-foto" src="assets/hero-dani.webp" alt="Daniela Barrera con abrigo de piel café" width="1672" height="941" />
+    <img class="hero-foto" src="assets/hero-gafas.webp" alt="Daniela Barrera con gafas y blazer vinotinto" width="1536" height="1024" />
     <div class="hero-left">
-      <p class="hero-firma" aria-hidden="true"><img src="assets/estrella.webp" alt="" />Dani</p>
+      <p class="hero-firma" aria-hidden="true">Dani</p>
       <h1 class="hero-headline">El guion que convierte a quien ve tu contenido en alguien que compra — no en alguien que solo hace scroll</h1>
       <p class="hero-sub">Se produce, se edita y se entrega listo para pauta.</p>
       <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20mi%20video" target="_blank" rel="noopener" class="btn-hero">Agenda tu video</a>
@@ -271,7 +278,7 @@
 
       <!-- Categoría 2: UGC + publicación -->
       <div class="price-card featured fade-in">
-        <svg class="clip" viewBox="0 0 40 110" aria-hidden="true"><path d="M30 34v50a11 11 0 0 1-22 0V20a15 15 0 0 1 30 0v62" /></svg><img class="estrella" src="assets/estrella.webp" alt="" width="260" height="253" /><span class="price-badge">📸 Más elegido</span>
+        <svg class="clip" viewBox="0 0 40 110" aria-hidden="true"><path d="M30 34v50a11 11 0 0 1-22 0V20a15 15 0 0 1 30 0v62" /></svg><span class="price-badge">📸 Más elegido</span>
         <h3 class="price-card-title">UGC + Publicación en Instagram o TikTok</h3>
         <p class="price-desc">Video + publicación en mis redes.</p>
         <div class="price-rows">
@@ -473,11 +480,10 @@
   <!-- SOBRE DANIELA -->
   <section id="sobre">
     <div class="sobre-inner">
-      <div class="polaroid-pila">
-        <img class="estrella" src="assets/estrella.webp" alt="" width="260" height="253" />
+      <div class="agenda">
         <svg class="clip" viewBox="0 0 40 110" aria-hidden="true"><path d="M30 34v50a11 11 0 0 1-22 0V20a15 15 0 0 1 30 0v62" /></svg>
         <figure class="polaroid">
-          <img src="assets/dani-polaroid.webp" alt="Daniela Barrera" loading="lazy" />
+          <img src="assets/dani-selfie.webp" alt="Daniela Barrera" loading="lazy" />
           <figcaption>Daniela Barrera</figcaption>
         </figure>
       </div>
@@ -485,15 +491,16 @@
         <h2 class="sobre-title">Soy Daniela Barrera</h2>
         <p class="sobre-bio">Creo contenido con intención para marcas de belleza, lifestyle, viajes y gastronomía — cada video tiene un solo objetivo: convertir.</p>
         <div class="sobre-mini">
-          <figure><img src="assets/dani-noche.webp" alt="Daniela con gafas oscuras y abrigo de piel" loading="lazy" /></figure>
-          <figure><img src="assets/dani-piscina.webp" alt="Daniela con gorra junto a una piscina" loading="lazy" /></figure>
-        </div>
-        <div class="stats-row">
-          <div class="stat"><span class="stat-num">18.000</span><span class="stat-label">Seguidores</span></div>
-          <div class="stat"><span class="stat-num">+50</span><span class="stat-label">Marcas trabajadas</span></div>
-          <div class="stat"><span class="stat-num">8</span><span class="stat-label">Países</span></div>
+          <figure><img src="assets/dani-portatil.webp" alt="Daniela mirando por encima de un portátil" loading="lazy" /></figure>
+          <figure><img src="assets/dani-camara.webp" alt="Daniela grabando con una cámara de video" loading="lazy" /></figure>
+          <figure><img src="assets/dani-tacones.webp" alt="Tacones negros y pantalón vinotinto" loading="lazy" /></figure>
         </div>
       </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><span class="stat-num">18.000</span><span class="stat-label">Seguidores</span></div>
+      <div class="stat"><span class="stat-num">+50</span><span class="stat-label">Marcas trabajadas</span></div>
+      <div class="stat"><span class="stat-num">8</span><span class="stat-label">Países</span></div>
     </div>
   </section>
 
@@ -525,8 +532,11 @@
 
   <!-- CTA FINAL -->
   <section id="cta">
-    <p class="cta-text">Quieres más ventas para tu marca. Ya tienes el producto. Solo falta el video que lo mueve. Hablemos hoy.</p>
-    <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20recibir%20mi%20asesor%C3%ADa%20para%20videos%20UGC" target="_blank" rel="noopener" class="btn-cta">Pide tu asesoría con Daniela</a>
+    <img class="cta-foto" src="assets/dani-telefono.webp" alt="Daniela hablando por celular" loading="lazy" />
+    <div class="cta-cuerpo">
+      <p class="cta-text">Quieres más ventas para tu marca. Ya tienes el producto. Solo falta el video que lo mueve. Hablemos hoy.</p>
+      <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20recibir%20mi%20asesor%C3%ADa%20para%20videos%20UGC" target="_blank" rel="noopener" class="btn-cta">Pide tu asesoría con Daniela</a>
+    </div>
   </section>
 
   <!-- CTA FIJO -->
