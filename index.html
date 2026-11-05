@@ -7,1049 +7,207 @@
   <meta name="description" content="Contenido auténtico que convierte marcas en experiencias" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    @font-face {
-      font-family: 'Sequel Sans';
-      src: url('sequel-sans-display-bold.ttf') format('truetype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400&family=DM+Sans:wght@400;500;700&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/hero-dani.webp" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #FBF4EB;
-      --bg2: #FBF4EB;
-      --rose-pale: #FBD9E5;
-      --rose: #F283AF;
-      --rose-deep: #C43670;
-      --pastel-yellow: #F3CC97;
-      --pastel-pink: #FBD9E5;
-      --pastel-beige: #FBF4EB;
-      --text: #2C2C2C;
-      --muted: #7A6E6E;
-      --white: #FFFFFF;
+      --crema: #FFFEF8;
+      --papel: #F2F1EB;
+      --rosa: #FFD4E9;
+      --cafe: #623E2A;
+      --cafe-suave: #6F5141;
+      --topo: #766A62;
+      --borde: #3C3333;
+      --linea: rgba(98, 62, 42, 0.22);
+      --script: 'Pinyon Script', cursive;
+      --didona: 'Bodoni Moda', 'Times New Roman', serif;
+      --texto: 'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body { font-family: var(--texto); background: var(--crema); color: var(--cafe); overflow-x: hidden; line-height: 1.5; }
+    img { display: block; max-width: 100%; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--cafe); outline-offset: 3px; }
+    #hero a:focus-visible, #cta a:focus-visible, footer a:focus-visible { outline-color: var(--rosa); }
+
+    /* NAV */
+    nav { position: fixed; inset: 0 0 auto 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 10px clamp(16px, 4vw, 56px); background: rgba(255, 254, 248, 0.96); border-bottom: 1px solid var(--linea); }
+    .nav-brand { font-family: var(--script); font-size: 32px; line-height: 1.2; color: var(--cafe); text-decoration: none; }
+    .nav-cta, .btn-hero, .btn-cta, .sticky-cta, .price-tier-cta, .btn-price { display: inline-flex; align-items: center; justify-content: center; border-radius: 100px; font-weight: 500; text-decoration: none; transition: background-color .2s, color .2s; }
+    .nav-cta, .sticky-cta, .price-tier-cta, .btn-price { background: var(--cafe); color: var(--crema); }
+    .nav-cta:hover, .sticky-cta:hover, .price-tier-cta:hover, .btn-price:hover { background: var(--borde); }
+    .nav-cta { font-size: 14px; padding: 10px 20px; white-space: nowrap; flex-shrink: 0; }
+    .nav-brand { white-space: nowrap; }
+
+    /* HERO */
+    #hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 110px clamp(16px, 6vw, 96px) 64px; background: radial-gradient(60% 90% at 88% 30%, #8B7E75 0%, var(--topo) 70%); overflow: hidden; }
+    .hero-foto { position: absolute; right: 0; bottom: 0; height: 100%; width: auto; max-width: none; }
+    .hero-left { position: relative; z-index: 2; max-width: min(610px, 46vw); }
+    .hero-firma { display: flex; align-items: center; gap: 14px; font-family: var(--script); font-size: clamp(64px, 7vw, 104px); line-height: 1.1; color: var(--rosa); }
+    .hero-firma img { width: 54px; height: auto; }
+    .hero-headline { font-family: var(--didona); font-weight: 500; font-size: clamp(32px, 3.4vw, 50px); line-height: 1.14; color: var(--rosa); margin-top: 10px; }
+    .hero-sub { font-size: 18px; color: var(--crema); margin-top: 22px; }
+    .btn-hero { background: var(--rosa); color: var(--cafe); font-size: 16px; height: 52px; padding: 0 38px; margin-top: 28px; }
+    .btn-hero:hover { background: var(--crema); }
+    .hero-price-hint { font-size: 14px; color: var(--crema); margin-top: 12px; }
+    @keyframes aparecer { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    .hero-left > * { animation: aparecer .7s ease both; }
+    .hero-left > :nth-child(2) { animation-delay: .1s; } .hero-left > :nth-child(3) { animation-delay: .2s; }
+    .hero-left > :nth-child(4) { animation-delay: .3s; } .hero-left > :nth-child(5) { animation-delay: .4s; }
+
+    /* TÍTULOS */
+    .section-title, .sobre-title, .marcas-title { font-family: var(--script); font-weight: 400; font-size: clamp(50px, 6.4vw, 88px); line-height: 1.12; text-align: center; color: var(--cafe); }
+    .section-title { max-width: 980px; margin: 0 auto 20px; }
+    .section-sub { text-align: center; font-size: 15px; color: var(--cafe-suave); max-width: 620px; margin: 0 auto 56px; }
+
+    /* PRECIOS */
+    #precios { padding: 96px clamp(16px, 5vw, 60px); }
+    .precios-categories, .precios-secondary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; max-width: 1080px; margin: 0 auto 36px; align-items: start; }
+    .price-featured-wrap { max-width: 1080px; margin: 0 auto 36px; }
+    .price-card { position: relative; display: flex; flex-direction: column; background: var(--papel); padding: 36px; border-left: 1.5px solid var(--borde); border-bottom: 1.5px solid var(--borde); }
+    .price-card.featured { background: var(--rosa); }
+    .price-card .clip { position: absolute; top: -22px; right: 30px; width: 30px; height: 84px; fill: none; stroke: var(--cafe); stroke-width: 2.4; stroke-linecap: round; }
+    .price-card .estrella { position: absolute; top: -34px; left: -26px; width: 76px; height: auto; }
+    .price-badge { align-self: flex-start; font-size: 13px; font-weight: 500; background: var(--crema); color: var(--cafe); padding: 5px 14px; border-radius: 100px; margin-bottom: 16px; }
+    .price-card .estrella + .price-badge { margin-left: 34px; }
+    .price-card-title { font-family: var(--didona); font-weight: 500; font-size: 28px; line-height: 1.18; color: var(--cafe); margin-bottom: 8px; }
+    .price-desc { font-size: 15px; color: var(--cafe-suave); }
+    .price-rows { border-top: 1px solid var(--linea); margin-top: 18px; }
+    .price-tier { padding: 16px 0; border-bottom: 1px solid var(--linea); }
+    .price-tier:last-child { border-bottom: 0; }
+    .price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--linea); }
+    .price-tier .price-row { padding: 0; border: 0; margin-bottom: 12px; }
+    .price-row-label { font-size: 15px; font-weight: 500; }
+    .price-row-sub { display: block; font-size: 13px; font-weight: 400; color: var(--cafe-suave); margin-top: 2px; }
+    .price-row-value { font-family: var(--didona); font-size: 25px; white-space: nowrap; flex-shrink: 0; }
+    .price-tier-cta { font-size: 14px; padding: 9px 18px; }
+    .price-subtitle { font-size: 14px; font-weight: 700; margin-top: 24px; }
+    .price-note { font-size: 14px; color: var(--cafe); background: var(--crema); padding: 12px 16px; margin-top: 18px; }
+    .price-featured-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; }
+    .price-featured-value { font-family: var(--didona); font-size: 42px; line-height: 1; }
+    .price-checklist { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 28px; margin: 20px 0 4px; }
+    .price-checklist li { display: flex; gap: 10px; font-size: 15px; }
+    .price-checklist li::before { content: '✓'; font-weight: 700; flex-shrink: 0; }
+    .btn-price { font-size: 15px; padding: 14px; margin-top: 22px; }
+    .incluye-list { display: grid; gap: 14px; margin-top: 14px; }
+    .incluye-item { display: flex; gap: 12px; }
+    .incluye-icon { flex-shrink: 0; }
+    .incluye-item-title { display: block; font-family: var(--didona); font-size: 18px; font-weight: 500; }
+    .incluye-item-desc { font-size: 14px; color: var(--cafe-suave); }
+    .precio-notas { max-width: 800px; margin: 0 auto 32px; text-align: center; font-size: 14px; color: var(--cafe-suave); }
+    .precio-custom { text-align: center; }
+    .precio-custom p { font-family: var(--didona); font-size: 22px; margin-bottom: 12px; }
+    .btn-custom { font-size: 15px; font-weight: 500; color: var(--cafe); }
+
+    /* REELS: celulares rosados */
+    #reels { padding: 96px 0; background: var(--papel); }
+    #reels .section-title { padding: 0 16px; margin-bottom: 48px; }
+    .reels-fila { display: flex; justify-content: center; gap: 36px; padding: 8px clamp(16px, 5vw, 60px) 16px; overflow-x: auto; scroll-snap-type: x mandatory; }
+    .reel { flex: 0 0 300px; scroll-snap-align: center; text-align: center; }
+    .phone { position: relative; height: 530px; padding: 11px; background: var(--rosa); border: 2px solid var(--borde); border-radius: 44px; }
+    .notch { position: absolute; z-index: 2; top: 11px; left: 50%; transform: translateX(-50%); width: 100px; height: 18px; background: var(--rosa); border-radius: 0 0 12px 12px; }
+    .pantalla { height: 100%; overflow: hidden; border-radius: 32px; background: var(--crema); }
+    .pantalla iframe { width: 100%; height: calc(100% + 64px); margin-top: -58px; border: 0; display: block; }
+    .reel-brand { font-family: var(--didona); font-weight: 500; font-size: 26px; margin-top: 18px; }
+    .reel-desc { font-size: 15px; color: var(--cafe-suave); margin-top: 4px; }
+    .reel-link { display: inline-block; font-size: 14px; font-weight: 500; color: var(--cafe); margin-top: 8px; }
+
+    /* VALOR */
+    #valor { padding: 88px clamp(16px, 5vw, 60px); background: var(--rosa); }
+    #valor .section-title { margin-bottom: 48px; }
+    .valor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1080px; margin: 0 auto; }
+    .valor-icon { display: block; font-size: 26px; margin-bottom: 12px; }
+    .valor-card h3 { font-family: var(--didona); font-weight: 500; font-size: 26px; line-height: 1.2; margin-bottom: 10px; }
+    .valor-card p { font-size: 16px; }
+
+    /* SOBRE */
+    #sobre { padding: 104px clamp(16px, 5vw, 60px); }
+    .sobre-inner { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr); gap: clamp(48px, 6vw, 88px); align-items: center; max-width: 1120px; margin: 0 auto; }
+    .polaroid-pila { position: relative; margin: 30px 14px 30px 20px; }
+    .polaroid-pila::before { content: ''; position: absolute; inset: 14px -14px -24px 16px; background: var(--papel); border-left: 1.5px solid var(--borde); border-bottom: 1.5px solid var(--borde); transform: rotate(4deg); }
+    .polaroid { position: relative; background: var(--papel); padding: 16px 16px 0; border-left: 1.5px solid var(--borde); border-bottom: 1.5px solid var(--borde); }
+    .polaroid img { width: 100%; aspect-ratio: 1 / 1.08; object-fit: cover; object-position: center 15%; }
+    .polaroid figcaption { font-family: var(--script); font-size: 42px; line-height: 1.5; color: var(--borde); padding: 8px 4px 10px; }
+    .polaroid-pila .clip { position: absolute; z-index: 2; top: -30px; right: 28px; width: 34px; height: 94px; fill: none; stroke: var(--borde); stroke-width: 2.2; stroke-linecap: round; }
+    .polaroid-pila .estrella { position: absolute; z-index: 2; top: -42px; left: -34px; width: 112px; height: auto; }
+    .sobre-title { text-align: left; margin-bottom: 18px; }
+    .sobre-bio { font-size: 18px; max-width: 54ch; }
+    .sobre-mini { display: flex; gap: 18px; margin: 28px 0; }
+    .sobre-mini figure { flex: 0 1 190px; background: var(--papel); padding: 8px 8px 26px; border-left: 1.5px solid var(--borde); border-bottom: 1.5px solid var(--borde); }
+    .sobre-mini img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .sobre-mini figure:nth-child(1) img { object-position: center 75%; }
+    .sobre-mini figure:nth-child(2) img { object-position: 62% 30%; }
+    .stats-row { display: flex; flex-wrap: wrap; gap: 20px 44px; }
+    .stat-num { display: block; font-family: var(--didona); font-weight: 500; font-size: 46px; line-height: 1.05; }
+    .stat-label { font-size: 14px; color: var(--cafe-suave); }
+
+    /* RESULTADOS */
+    #resultados { padding: 88px clamp(16px, 5vw, 60px); border-top: 1px solid var(--linea); }
+    #resultados .section-title { margin-bottom: 48px; }
+    .resultados-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; text-align: center; }
+    .resultado-num { display: block; font-family: var(--didona); font-weight: 500; font-size: clamp(60px, 7vw, 92px); line-height: 1; }
+    .resultado-label { display: block; font-size: 15px; color: var(--cafe-suave); margin-top: 10px; }
+
+    /* MARCAS: nácar */
+    #marcas { position: relative; padding: 88px clamp(16px, 5vw, 60px); background: linear-gradient(rgba(70, 56, 47, .72), rgba(70, 56, 47, .72)), url('assets/nacar.webp') center / 720px; }
+    .marcas-title { color: var(--rosa); margin-bottom: 40px; }
+    .logos, .marcas-texto { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; max-width: 900px; margin: 0 auto; }
+    .logos { gap: 16px; }
+    .logo { width: 112px; height: 112px; background: #fff; border-radius: 14px; overflow: hidden; }
+    .logo img { width: 100%; height: 100%; object-fit: contain; }
+    .logo.oscuro { background: var(--cafe); padding: 8px; }
+    .logo.negro { background: #141414; width: 200px; }
+    .logo.libre { background: transparent; }
+    .marcas-texto { gap: 8px 28px; margin-top: 32px; font-family: var(--didona); font-size: 20px; color: var(--rosa); }
+
+    /* CTA */
+    #cta { padding: 104px clamp(16px, 5vw, 60px); background: var(--cafe); text-align: center; }
+    .cta-text { font-family: var(--didona); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.25; color: var(--rosa); max-width: 780px; margin: 0 auto 36px; }
+    .btn-cta { background: var(--rosa); color: var(--cafe); font-size: 16px; height: 56px; padding: 0 40px; max-width: 100%; }
+    .btn-cta:hover { background: var(--crema); }
+
+    /* FOOTER */
+    footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 32px clamp(16px, 5vw, 60px); background: var(--borde); color: var(--crema); }
+    .footer-brand-name { display: block; font-family: var(--script); font-size: 34px; line-height: 1.3; color: var(--rosa); }
+    .footer-tagline { font-size: 14px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px 26px; }
+    .footer-links a { font-size: 14px; color: var(--crema); }
+
+    /* CTA FIJO */
+    .sticky-cta { position: fixed; right: 20px; bottom: 20px; z-index: 90; font-size: 14px; padding: 14px 24px; border: 1.5px solid var(--rosa); box-shadow: 0 6px 20px rgba(60, 51, 51, .3); visibility: hidden; opacity: 0; transition: opacity .3s, background-color .2s; }
+    .sticky-cta.visible { visibility: visible; opacity: 1; }
+
+    @media (max-width: 960px) {
+      .reels-fila { justify-content: flex-start; }
+      .sobre-inner { grid-template-columns: 1fr; }
+      .polaroid-pila { max-width: 460px; width: calc(100% - 40px); margin-inline: auto; }
     }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    /* ── NAVBAR ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 60px;
-      background: rgba(250, 248, 245, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .nav-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--rose-deep);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      padding: 10px 22px;
-      border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(242, 131, 175, 0.35);
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      background-color: var(--bg2);
-      background-image: url("hf_20260409_152710_150a2db3-451c-4edd-95ec-82b865d9090c%20(1)%20(1).png");
-      background-size: cover;
-      background-position: 65% top;
-      display: flex;
-      align-items: center;
-      padding: 140px 60px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(251,244,235,0.97) 0%,
-        rgba(251,244,235,0.88) 28%,
-        rgba(251,244,235,0.35) 50%,
-        rgba(251,244,235,0.05) 68%,
-        transparent 100%
-      );
-      z-index: 0;
-    }
-
-    .particles-canvas {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .hero-left { max-width: 680px; }
-
-    .hero-headline {
-      font-family: 'Sequel Sans', 'DM Sans', sans-serif;
-      font-size: 64px;
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--text);
-      max-width: 700px;
-      opacity: 0;
-      transform: translateY(32px);
-      animation: fadeUp 0.8s ease forwards 0s;
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      color: var(--text);
-      line-height: 1.7;
-      margin-top: 24px;
-      max-width: 560px;
-      opacity: 0;
-      transform: translateY(24px);
-      animation: fadeUp 0.8s ease forwards 0.2s;
-    }
-
-    .btn-hero {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--rose-deep);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      padding: 0 40px;
-      height: 52px;
-      border-radius: 100px;
-      text-decoration: none;
-      margin-top: 36px;
-      box-shadow: 0 6px 20px rgba(242, 131, 175, 0.4);
-      transition: opacity 0.2s, transform 0.2s;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.4s;
-    }
-    .btn-hero:hover { opacity: 0.88; transform: translateY(-2px); }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── VALUE PROPS ── */
-    #valor {
-      background: var(--bg);
-      padding: 100px 60px;
-    }
-
-    .section-title {
-      font-family: 'Sequel Sans', 'DM Sans', sans-serif;
-      font-size: 44px;
-      font-weight: 700;
-      color: var(--text);
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .valor-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .valor-card {
-      text-align: center;
-      background: var(--white);
-      border: 1.5px solid var(--rose-pale);
-      border-radius: 20px;
-      padding: 40px 28px;
-      box-shadow: 0 8px 30px rgba(44,44,44,0.06);
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
-    }
-    .valor-card.visible { opacity: 1; transform: translateY(0); }
-    .valor-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(44,44,44,0.1); }
-    .valor-card:nth-child(2) { transition-delay: 0.15s; }
-    .valor-card:nth-child(3) { transition-delay: 0.3s; }
-
-    .valor-icon {
-      font-size: 28px;
-      color: var(--rose);
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .valor-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-
-    .valor-card p {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    /* ── SOBRE DANIELA ── */
-    #sobre {
-      background: var(--bg);
-      padding: 100px 60px;
-    }
-
-    .sobre-inner {
-      display: flex;
-      align-items: flex-start;
-      gap: 80px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .sobre-img {
-      width: 500px;
-      min-width: 500px;
-      height: 600px;
-      border-radius: 24px;
-      overflow: hidden;
-      flex-shrink: 0;
-      background: var(--rose-pale);
-    }
-
-    .sobre-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
-    .sobre-content { flex: 1; }
-
-    .sobre-title {
-      font-family: 'Sequel Sans', 'DM Sans', sans-serif;
-      font-size: 52px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 28px;
-      line-height: 1.1;
-    }
-
-    .sobre-bio {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 56px;
-    }
-
-    .stats-row {
-      display: flex;
-      gap: 48px;
-    }
-
-    .stat { text-align: left; }
-
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 48px;
-      font-weight: 400;
-      color: var(--rose-deep);
-      display: block;
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: 6px;
-      display: block;
-    }
-
-    /* ── MARCAS MARQUEE ── */
-    #marcas {
-      background: var(--pastel-beige);
-      padding: 60px 0;
-    }
-
-    .marcas-title {
-      font-family: 'Sequel Sans', 'DM Sans', sans-serif;
-      font-size: 52px;
-      font-weight: 700;
-      color: var(--text);
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .marquee-wrap {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-    }
-
-    .marquee-track {
-      display: inline-flex;
-      animation: marquee 40s linear infinite;
-    }
-
-    .marquee-track span {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      color: var(--rose);
-      padding: 0 28px;
-      flex-shrink: 0;
-    }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ── PRECIOS ── */
-    #precios {
-      background: var(--bg);
-      padding: 100px 60px;
-    }
-
-    .section-sub {
-      text-align: center;
-      font-size: 14px;
-      color: var(--muted);
-      margin-top: -44px;
-      margin-bottom: 64px;
-    }
-
-    .precios-categories {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      max-width: 1100px;
-      margin: 0 auto 28px;
-      align-items: stretch;
-    }
-
-    .precios-secondary {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      max-width: 1100px;
-      margin: 0 auto 28px;
-      align-items: stretch;
-    }
-
-    .price-featured-wrap {
-      max-width: 1100px;
-      margin: 0 auto 28px;
-    }
-
-    .price-card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 2px 24px rgba(44,44,44,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .price-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 6px;
-      background: linear-gradient(to right, var(--rose), var(--rose-deep));
-    }
-    .price-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(44,44,44,0.13);
-    }
-
-    .price-card.featured {
-      background: var(--white);
-      border: 2px solid var(--rose-deep);
-    }
-
-    .price-badge {
-      display: inline-block;
-      background: var(--rose);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 16px;
-      align-self: flex-start;
-    }
-
-    .price-card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 25px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-
-    .price-desc {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 8px;
-    }
-
-    .price-rows {
-      border-top: 1px solid var(--rose-pale);
-      margin-top: 16px;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--rose-pale);
-    }
-
-    .price-row-label {
-      font-size: 15px;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .price-row-sub {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 400;
-      margin-top: 2px;
-    }
-
-    .price-row-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 23px;
-      color: var(--rose-deep);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .price-subtitle {
-      font-size: 11.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-      color: var(--rose-deep);
-      font-weight: 600;
-      margin-top: 20px;
-      margin-bottom: 2px;
-    }
-
-    .price-tier {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--rose-pale);
-    }
-    .price-tier:last-child { border-bottom: none; }
-
-    .price-tier .price-row {
-      padding: 0;
-      border-bottom: none;
-      margin-bottom: 12px;
-    }
-
-    .price-tier-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      color: var(--white);
-      font-weight: 500;
-      text-decoration: none;
-      background: var(--rose-deep);
-      border-radius: 100px;
-      padding: 9px 18px;
-      box-shadow: 0 3px 10px rgba(242, 131, 175, 0.35);
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-    .price-tier-cta:hover {
-      background: var(--rose);
-      transform: translateY(-1px);
-      box-shadow: 0 5px 14px rgba(242, 131, 175, 0.45);
-    }
-
-    .price-note {
-      font-size: 12.5px;
-      color: var(--muted);
-      line-height: 1.6;
-      background: var(--rose-pale);
-      border-radius: 12px;
-      padding: 12px 16px;
-      margin-top: 20px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .price-note::before {
-      content: 'ℹ';
-      flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--rose);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-style: normal;
-      line-height: 1;
-    }
-
-    .price-featured-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px 20px;
-      margin-bottom: 8px;
-    }
-
-    .price-featured-value {
-      font-family: 'Sequel Sans', 'DM Sans', sans-serif;
-      font-size: 38px;
-      font-weight: 700;
-      color: var(--rose-deep);
-      line-height: 1;
-    }
-
-    .price-checklist {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px 28px;
-      margin: 20px 0 4px;
-    }
-
-    .price-checklist li {
-      font-size: 14.5px;
-      color: var(--text);
-      display: flex;
-      gap: 10px;
-      line-height: 1.5;
-    }
-
-    .price-checklist li::before {
-      content: '✓';
-      color: var(--rose);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .incluye-list {
-      display: grid;
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .incluye-item {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .incluye-icon {
-      color: var(--rose);
-      font-size: 15px;
-      flex-shrink: 0;
-      margin-top: 3px;
-    }
-
-    .incluye-item-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      color: var(--text);
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .incluye-item-desc {
-      font-size: 12.5px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .precio-notas {
-      max-width: 1000px;
-      margin: 0 auto 40px;
-      text-align: center;
-      font-size: 12.5px;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    .btn-price {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background: var(--rose-deep);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 14px;
-      border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(242, 131, 175, 0.3);
-      transition: opacity 0.2s, transform 0.2s;
-      margin-top: 24px;
-    }
-    .btn-price:hover { opacity: 0.88; transform: translateY(-1px); }
-
-    .precio-custom {
-      text-align: center;
-      margin-top: 16px;
-    }
-    .precio-custom p {
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-    .btn-custom {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--rose);
-      font-weight: 500;
-      text-decoration: none;
-      border-bottom: 1px solid var(--rose-pale);
-      padding-bottom: 2px;
-      transition: border-color 0.2s;
-    }
-    .btn-custom:hover { border-color: var(--rose); }
-
-    /* ── REELS CARRUSEL ── */
-    #reels {
-      background: var(--pastel-beige);
-      padding: 100px 60px;
-    }
-
-    .carousel-outer {
-      max-width: 1100px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .carousel-track-wrap {
-      overflow: hidden;
-      border-radius: 20px;
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .reel-slide {
-      flex: 0 0 100%;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      padding: 0 20px;
-    }
-
-    .reel-frame-wrap {
-      width: 100%;
-      max-width: 400px;
-      position: relative;
-    }
-
-    .reel-frame {
-      width: 100%;
-      height: 480px;
-      border-radius: 16px;
-      border: none;
-      background: var(--rose-pale);
-      display: block;
-    }
-
-    .reel-placeholder {
-      width: 100%;
-      height: 480px;
-      border-radius: 16px;
-      background: var(--rose-pale);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-    }
-
-    .reel-placeholder-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      color: var(--rose);
-    }
-
-    .reel-placeholder a {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      border: 1px solid var(--rose-pale);
-      padding: 8px 18px;
-      border-radius: 100px;
-      transition: background 0.2s;
-    }
-    .reel-placeholder a:hover { background: var(--rose-pale); }
-
-    .reel-info { text-align: center; }
-
-    .reel-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      color: var(--text);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .reel-desc {
-      font-size: 17px;
-      color: var(--muted);
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 220px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--white);
-      border: 2px solid var(--rose-pale);
-      color: var(--rose);
-      font-size: 20px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, border-color 0.2s;
-      z-index: 10;
-      line-height: 1;
-    }
-    .carousel-btn:hover { background: var(--rose-pale); border-color: var(--rose); }
-    .carousel-btn.prev { left: -28px; }
-    .carousel-btn.next { right: -28px; }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 28px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--rose-pale);
-      cursor: pointer;
-      transition: background 0.25s, transform 0.25s;
-      border: none;
-    }
-    .dot.active {
-      background: var(--rose);
-      transform: scale(1.25);
-    }
-
-    /* ── CTA FINAL ── */
-    #cta {
-      background: linear-gradient(to bottom, var(--rose), var(--rose-deep));
-      padding: 120px 60px;
-      text-align: center;
-    }
-
-    .cta-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
-      font-weight: 400;
-      color: var(--text);
-      max-width: 700px;
-      margin: 0 auto 48px;
-      line-height: 1.3;
-    }
-
-    .btn-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--text);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      padding: 0 48px;
-      height: 56px;
-      width: 320px;
-      justify-content: center;
-      border-radius: 100px;
-      text-decoration: none;
-      animation: pulse 2.4s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--text);
-      padding: 48px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-
-    .footer-brand-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      font-weight: 400;
-      color: var(--bg);
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .footer-tagline {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .footer-links a {
-      font-size: 14px;
-      color: var(--bg);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--rose); }
-
-    /* ── FADE-IN SCROLL UTILITY ── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── STICKY CTA ── */
-    .sticky-cta {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 200;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--rose-deep);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 14px 26px;
-      border-radius: 100px;
-      text-decoration: none;
-      box-shadow: 0 4px 24px rgba(242, 131, 175, 0.45);
-      opacity: 0;
-      transform: translateY(10px);
-      pointer-events: none;
-      transition: opacity 0.35s ease, transform 0.35s ease;
-    }
-    .sticky-cta.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    .sticky-cta:hover {
-      opacity: 0.88;
-      transform: translateY(-2px) !important;
-    }
-
-    .hero-price-hint {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 12px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease forwards 0.6s;
-    }
-
-    /* ── RESULTADOS ── */
-    #resultados {
-      background: var(--bg);
-      padding: 80px 60px;
-    }
-
-    .resultados-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .resultado-item {
-      text-align: center;
-      background: var(--white);
-      border: 1.5px solid var(--rose-pale);
-      border-radius: 20px;
-      padding: 40px 28px 32px;
-      box-shadow: 0 8px 30px rgba(44,44,44,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .resultado-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 40px rgba(44,44,44,0.1);
-    }
-
-    .resultado-icon {
-      font-size: 20px;
-      color: var(--rose);
-      display: block;
-      margin-bottom: 16px;
-    }
-
-    .resultado-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 60px;
-      font-weight: 400;
-      color: var(--rose-deep);
-      display: block;
-      line-height: 1;
-      margin-bottom: 14px;
-    }
-
-    .resultado-label {
-      font-size: 14px;
-      color: var(--muted);
-      display: block;
-      line-height: 1.6;
-    }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-
-      #hero { padding: 120px 24px 80px; background-position: 70% top; }
-      .hero-left {
-        padding: 28px 22px;
-        border-radius: 28px;
-        background: radial-gradient(
-          85% 75% at 50% 35%,
-          rgba(251,244,235,0.95) 0%,
-          rgba(251,244,235,0.9) 55%,
-          rgba(251,244,235,0.6) 78%,
-          rgba(251,244,235,0.15) 92%,
-          transparent 100%
-        );
-      }
-      .hero-headline { font-size: 40px; }
-      .hero-sub { font-size: 16px; }
-      .btn-hero { align-self: flex-start; }
-
-      #valor { padding: 72px 24px; }
-      .section-title { font-size: 34px; }
-      .valor-grid { grid-template-columns: 1fr; gap: 20px; }
-
-      #sobre { padding: 72px 24px; }
-      .sobre-inner { flex-direction: column; gap: 40px; }
-      .sobre-img { width: 100%; min-width: unset; height: 400px; }
-      .sobre-title { font-size: 38px; }
-      .stats-row { gap: 28px; flex-wrap: wrap; }
-
-      #resultados { padding: 60px 24px; }
-      .resultados-grid { grid-template-columns: 1fr; gap: 20px; }
-      .resultado-item { padding: 32px 24px 28px; }
-      .resultado-num { font-size: 52px; }
-
-      #marcas { padding: 48px 0; }
-      .marcas-title { font-size: 28px; padding: 0 24px; }
-
-      #precios { padding: 72px 24px; }
-      .precios-categories { grid-template-columns: 1fr; gap: 20px; }
-      .precios-secondary { grid-template-columns: 1fr; gap: 20px; }
+      #hero { flex-direction: column; align-items: stretch; min-height: 0; padding: 88px 16px 0; background: var(--topo); }
+      .nav-brand { font-size: 27px; }
+      .hero-foto { order: 2; }
+      .polaroid figcaption { font-size: 34px; white-space: nowrap; }
+      .hero-left { max-width: none; }
+      .hero-foto { position: relative; right: auto; height: 360px; margin: 24px 0 0 auto; transform: translateX(16px); object-fit: cover; object-position: right; width: calc(100vw + 0px); }
+      .precios-categories, .precios-secondary, .valor-grid, .resultados-grid { grid-template-columns: 1fr; }
+      .price-card { padding: 28px 20px; }
+      .price-card .estrella { left: -8px; }
       .price-checklist { grid-template-columns: 1fr; }
-      .section-sub { margin-bottom: 40px; }
+      .price-row-value { font-size: 22px; }
+      .sobre-title { text-align: center; }
+      .sobre-mini { justify-content: center; }
+      .logo { width: 96px; height: 96px; }
+      .logo.negro { width: 170px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
 
-      #reels { padding: 72px 24px; }
-      .carousel-btn.prev { left: -12px; }
-      .carousel-btn.next { right: -12px; }
-
-      #cta { padding: 80px 24px; }
-      .cta-text { font-size: 30px; }
-      .btn-cta { width: 100%; max-width: 320px; }
-
-      footer { padding: 40px 24px; flex-direction: column; align-items: flex-start; }
-      .footer-links { flex-wrap: wrap; gap: 20px; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-left > * { animation: none; }
+      * { transition: none !important; }
     }
   </style>
 </head>
@@ -1063,14 +221,13 @@
 
   <!-- HERO -->
   <section id="hero">
-    <canvas class="particles-canvas" id="particlesCanvas"></canvas>
-    <div class="hero-inner">
-      <div class="hero-left">
-        <h1 class="hero-headline">El guion que convierte a quien ve tu contenido en alguien que compra — no en alguien que solo hace scroll</h1>
-        <p class="hero-sub">Se produce, se edita y se entrega listo para pauta.</p>
-        <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20mi%20video" target="_blank" rel="noopener" class="btn-hero">Agenda tu video</a>
-        <p class="hero-price-hint">Desde $450.000 por video</p>
-      </div>
+    <img class="hero-foto" src="assets/hero-dani.webp" alt="Daniela Barrera con abrigo de piel café" width="1672" height="941" />
+    <div class="hero-left">
+      <p class="hero-firma" aria-hidden="true"><img src="assets/estrella.webp" alt="" />Dani</p>
+      <h1 class="hero-headline">El guion que convierte a quien ve tu contenido en alguien que compra — no en alguien que solo hace scroll</h1>
+      <p class="hero-sub">Se produce, se edita y se entrega listo para pauta.</p>
+      <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20mi%20video" target="_blank" rel="noopener" class="btn-hero">Agenda tu video</a>
+      <p class="hero-price-hint">Desde $450.000 por video</p>
     </div>
   </section>
 
@@ -1114,7 +271,7 @@
 
       <!-- Categoría 2: UGC + publicación -->
       <div class="price-card featured fade-in">
-        <span class="price-badge">📸 Más elegido</span>
+        <svg class="clip" viewBox="0 0 40 110" aria-hidden="true"><path d="M30 34v50a11 11 0 0 1-22 0V20a15 15 0 0 1 30 0v62" /></svg><img class="estrella" src="assets/estrella.webp" alt="" width="260" height="253" /><span class="price-badge">📸 Más elegido</span>
         <h3 class="price-card-title">UGC + Publicación en Instagram o TikTok</h3>
         <p class="price-desc">Video + publicación en mis redes.</p>
         <div class="price-rows">
@@ -1266,71 +423,34 @@
     </div>
   </section>
 
-  <!-- REELS CARRUSEL -->
+  <!-- REELS -->
   <section id="reels">
-    <h2 class="section-title fade-in">Trabajos reales. Marcas reales.</h2>
-    <div class="carousel-outer">
-      <div class="carousel-track-wrap">
-        <div class="carousel-track" id="carouselTrack">
-
-          <!-- Slide 1: Temu -->
-          <div class="reel-slide">
-            <div class="reel-frame-wrap">
-              <iframe class="reel-frame" src="https://www.instagram.com/reel/DTIpZE4kWCh/embed" title="Temu reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-0">
-                <span class="reel-placeholder-name">Temu</span>
-                <a href="https://www.instagram.com/reel/DTIpZE4kWCh/" target="_blank" rel="noopener">Ver reel ↗</a>
-              </div>
-            </div>
-            <div class="reel-info">
-              <span class="reel-brand">Temu</span>
-              <span class="reel-desc">Campaña de múltiples productos — formato probado para pauta</span>
-            </div>
-          </div>
-
-          <!-- Slide 2: Brunch House -->
-          <div class="reel-slide">
-            <div class="reel-frame-wrap">
-              <iframe class="reel-frame" src="https://www.instagram.com/reel/DV8_KcHlb7D/embed" title="Brunch House reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-bh">
-                <span class="reel-placeholder-name">Brunch House</span>
-                <a href="https://www.instagram.com/reel/DV8_KcHlb7D/" target="_blank" rel="noopener">Ver reel ↗</a>
-              </div>
-            </div>
-            <div class="reel-info">
-              <span class="reel-brand">Brunch House</span>
-              <span class="reel-desc">95.702 visualizaciones · 7.273 interacciones</span>
-            </div>
-          </div>
-
-          <!-- Slide 3: Primos Cybermarket -->
-          <div class="reel-slide">
-            <div class="reel-frame-wrap">
-              <iframe class="reel-frame" src="https://www.instagram.com/p/DWUGZtPkcQI/embed" title="Primos Cybermarket" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe>
-              <div class="reel-placeholder" id="ph-1">
-                <span class="reel-placeholder-name">Primos Cybermarket</span>
-                <a href="https://www.instagram.com/p/DWUGZtPkcQI/" target="_blank" rel="noopener">Ver reel ↗</a>
-              </div>
-            </div>
-            <div class="reel-info">
-              <span class="reel-brand">Primos Cybermarket</span>
-              <span class="reel-desc">Video de producto — campaña de conversión</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">&#8592;</button>
-      <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">&#8594;</button>
-
-      <div class="carousel-dots" id="carouselDots"></div>
+    <h2 class="section-title">Trabajos reales. Marcas reales.</h2>
+    <div class="reels-fila" tabindex="0" aria-label="Reels de marcas">
+        <article class="reel">
+          <div class="phone"><span class="notch"></span><div class="pantalla"><iframe src="https://www.instagram.com/reel/DTIpZE4kWCh/embed" title="Temu reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe></div></div>
+          <h3 class="reel-brand">Temu</h3>
+          <p class="reel-desc">Campaña de múltiples productos — formato probado para pauta</p>
+          <a class="reel-link" href="https://www.instagram.com/reel/DTIpZE4kWCh/" target="_blank" rel="noopener">Ver reel ↗</a>
+        </article>
+        <article class="reel">
+          <div class="phone"><span class="notch"></span><div class="pantalla"><iframe src="https://www.instagram.com/reel/DV8_KcHlb7D/embed" title="Brunch House reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe></div></div>
+          <h3 class="reel-brand">Brunch House</h3>
+          <p class="reel-desc">95.702 visualizaciones · 7.273 interacciones</p>
+          <a class="reel-link" href="https://www.instagram.com/reel/DV8_KcHlb7D/" target="_blank" rel="noopener">Ver reel ↗</a>
+        </article>
+        <article class="reel">
+          <div class="phone"><span class="notch"></span><div class="pantalla"><iframe src="https://www.instagram.com/p/DWUGZtPkcQI/embed" title="Primos Cybermarket reel" scrolling="no" allowtransparency="true" allowfullscreen="true" loading="lazy"></iframe></div></div>
+          <h3 class="reel-brand">Primos Cybermarket</h3>
+          <p class="reel-desc">Video de producto — campaña de conversión</p>
+          <a class="reel-link" href="https://www.instagram.com/p/DWUGZtPkcQI/" target="_blank" rel="noopener">Ver reel ↗</a>
+        </article>
     </div>
   </section>
 
   <!-- PROPUESTA DE VALOR -->
   <section id="valor">
-    <h2 class="section-title fade-in">Lo que voy a hacer por tu marca</h2>
+    <h2 class="section-title">Lo que voy a hacer por tu marca</h2>
     <div class="valor-grid">
       <div class="valor-card">
         <span class="valor-icon">📝</span>
@@ -1352,24 +472,26 @@
 
   <!-- SOBRE DANIELA -->
   <section id="sobre">
-    <div class="sobre-inner fade-in">
-      <div class="sobre-img"><img src="daniela-sobre.jpg" alt="Daniela Barrera" /></div>
+    <div class="sobre-inner">
+      <div class="polaroid-pila">
+        <img class="estrella" src="assets/estrella.webp" alt="" width="260" height="253" />
+        <svg class="clip" viewBox="0 0 40 110" aria-hidden="true"><path d="M30 34v50a11 11 0 0 1-22 0V20a15 15 0 0 1 30 0v62" /></svg>
+        <figure class="polaroid">
+          <img src="assets/dani-polaroid.webp" alt="Daniela Barrera" loading="lazy" />
+          <figcaption>Daniela Barrera</figcaption>
+        </figure>
+      </div>
       <div class="sobre-content">
         <h2 class="sobre-title">Soy Daniela Barrera</h2>
         <p class="sobre-bio">Creo contenido con intención para marcas de belleza, lifestyle, viajes y gastronomía — cada video tiene un solo objetivo: convertir.</p>
+        <div class="sobre-mini">
+          <figure><img src="assets/dani-noche.webp" alt="Daniela con gafas oscuras y abrigo de piel" loading="lazy" /></figure>
+          <figure><img src="assets/dani-piscina.webp" alt="Daniela con gorra junto a una piscina" loading="lazy" /></figure>
+        </div>
         <div class="stats-row">
-          <div class="stat">
-            <span class="stat-num" data-target="18000" data-prefix="" data-suffix=""></span>
-            <span class="stat-label">Seguidores</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num" data-target="50" data-prefix="+" data-suffix=""></span>
-            <span class="stat-label">Marcas trabajadas</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num" data-target="8" data-prefix="" data-suffix=""></span>
-            <span class="stat-label">Países</span>
-          </div>
+          <div class="stat"><span class="stat-num">18.000</span><span class="stat-label">Seguidores</span></div>
+          <div class="stat"><span class="stat-num">+50</span><span class="stat-label">Marcas trabajadas</span></div>
+          <div class="stat"><span class="stat-num">8</span><span class="stat-label">Países</span></div>
         </div>
       </div>
     </div>
@@ -1377,20 +499,17 @@
 
   <!-- RESULTADOS -->
   <section id="resultados">
-    <h2 class="section-title fade-in">Números reales, marcas reales</h2>
+    <h2 class="section-title">Números reales, marcas reales</h2>
     <div class="resultados-grid">
-      <div class="resultado-item fade-in">
-        <span class="resultado-icon">👁</span>
+      <div class="resultado-item">
         <span class="resultado-num">+142K</span>
         <span class="resultado-label">visualizaciones<br>en un solo reel orgánico</span>
       </div>
-      <div class="resultado-item fade-in">
-        <span class="resultado-icon">👁</span>
+      <div class="resultado-item">
         <span class="resultado-num">95K</span>
         <span class="resultado-label">visualizaciones<br>Brunch House</span>
       </div>
-      <div class="resultado-item fade-in">
-        <span class="resultado-icon">💬</span>
+      <div class="resultado-item">
         <span class="resultado-num">7.273</span>
         <span class="resultado-label">interacciones totales<br>Brunch House · tasa ~7.6%</span>
       </div>
@@ -1399,48 +518,18 @@
 
   <!-- MARCAS -->
   <section id="marcas">
-    <h2 class="marcas-title fade-in">Marcas con las que he trabajado</h2>
-    <div class="marquee-wrap">
-      <div class="marquee-track" id="marqueeTrack">
-        <span>Temu</span><span>·</span>
-        <span>Entre Nubes</span><span>·</span>
-        <span>Amazónica Beleza</span><span>·</span>
-        <span>Brunch House</span><span>·</span>
-        <span>Nuestro Sueño</span><span>·</span>
-        <span>Samsonite</span><span>·</span>
-        <span>I Energy</span><span>·</span>
-        <span>Infinitek Paris</span><span>·</span>
-        <span>Verónica Ardila Swimwear</span><span>·</span>
-        <span>Primos Cybermarket</span><span>·</span>
-        <span>Nvol</span><span>·</span>
-        <span>Té Hindu</span><span>·</span>
-        <span>Speedmax</span><span>·</span>
-        <!-- duplicate for seamless loop -->
-        <span>Temu</span><span>·</span>
-        <span>Entre Nubes</span><span>·</span>
-        <span>Amazónica Beleza</span><span>·</span>
-        <span>Brunch House</span><span>·</span>
-        <span>Nuestro Sueño</span><span>·</span>
-        <span>Samsonite</span><span>·</span>
-        <span>I Energy</span><span>·</span>
-        <span>Infinitek Paris</span><span>·</span>
-        <span>Verónica Ardila Swimwear</span><span>·</span>
-        <span>Primos Cybermarket</span><span>·</span>
-        <span>Nvol</span><span>·</span>
-        <span>Té Hindu</span><span>·</span>
-        <span>Speedmax</span><span>·</span>
-      </div>
-    </div>
+    <h2 class="marcas-title">Marcas con las que he trabajado</h2>
+    <ul class="logos"><li class="logo oscuro"><img src="assets/logos/primos.webp" alt="Primo's Cybermarket" loading="lazy" /></li><li class="logo "><img src="assets/logos/medicube.webp" alt="Medicube" loading="lazy" /></li><li class="logo "><img src="assets/logos/carolina-herrera.webp" alt="Carolina Herrera" loading="lazy" /></li><li class="logo "><img src="assets/logos/posbion.webp" alt="Posbion" loading="lazy" /></li><li class="logo negro"><img src="assets/logos/click-hair.webp" alt="Click Hair" loading="lazy" /></li><li class="logo libre"><img src="assets/logos/temu.webp" alt="Temu" loading="lazy" /></li><li class="logo "><img src="assets/logos/infinitek.webp" alt="Infinitek Paris" loading="lazy" /></li><li class="logo "><img src="assets/logos/maison-label.webp" alt="Maison Label" loading="lazy" /></li><li class="logo "><img src="assets/logos/samsonite.webp" alt="Samsonite" loading="lazy" /></li><li class="logo "><img src="assets/logos/brunch-house.webp" alt="Brunch House" loading="lazy" /></li><li class="logo "><img src="assets/logos/ushas.webp" alt="Ushas" loading="lazy" /></li><li class="logo "><img src="assets/logos/margarita.webp" alt="Margarita" loading="lazy" /></li><li class="logo "><img src="assets/logos/marca-a.webp" alt="Marca aliada" loading="lazy" /></li></ul>
+    <ul class="marcas-texto"><li>Entre Nubes</li><li>Amazónica Beleza</li><li>Nuestro Sueño</li><li>I Energy</li><li>Verónica Ardila Swimwear</li><li>Nvol</li><li>Té Hindu</li><li>Speedmax</li></ul>
   </section>
-
 
   <!-- CTA FINAL -->
   <section id="cta">
-    <p class="cta-text fade-in">Quieres más ventas para tu marca. Ya tienes el producto. Solo falta el video que lo mueve. Hablemos hoy.</p>
+    <p class="cta-text">Quieres más ventas para tu marca. Ya tienes el producto. Solo falta el video que lo mueve. Hablemos hoy.</p>
     <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20recibir%20mi%20asesor%C3%ADa%20para%20videos%20UGC" target="_blank" rel="noopener" class="btn-cta">Pide tu asesoría con Daniela</a>
   </section>
 
-  <!-- STICKY CTA -->
+  <!-- CTA FIJO -->
   <a href="https://wa.me/573002572988?text=Hola%20Daniela%2C%20quiero%20agendar%20mi%20video" target="_blank" rel="noopener" id="stickyCta" class="sticky-cta">Agenda tu video →</a>
 
   <!-- FOOTER -->
@@ -1457,163 +546,14 @@
   </footer>
 
   <script>
-    /* ── PARTICLES ── */
+    /* El botón fijo aparece cuando el hero sale de pantalla */
     (function () {
-      const canvas = document.getElementById('particlesCanvas');
-      const ctx = canvas.getContext('2d');
-      let W, H, particles;
-
-      function resize() {
-        W = canvas.width = canvas.offsetWidth;
-        H = canvas.height = canvas.offsetHeight;
-      }
-
-      function initParticles() {
-        particles = Array.from({ length: 14 }, () => ({
-          x: Math.random() * W,
-          y: Math.random() * H,
-          r: 4 + Math.random() * 14,
-          dx: (Math.random() - 0.5) * 0.35,
-          dy: -0.15 - Math.random() * 0.25,
-          alpha: 0.12 + Math.random() * 0.2
-        }));
-      }
-
-      function draw() {
-        ctx.clearRect(0, 0, W, H);
-        particles.forEach(p => {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(234,207,200,${p.alpha})`;
-          ctx.fill();
-          p.x += p.dx;
-          p.y += p.dy;
-          if (p.y + p.r < 0) { p.y = H + p.r; p.x = Math.random() * W; }
-          if (p.x - p.r > W) p.x = -p.r;
-          if (p.x + p.r < 0) p.x = W + p.r;
-        });
-        requestAnimationFrame(draw);
-      }
-
-      resize();
-      initParticles();
-      draw();
-      window.addEventListener('resize', () => { resize(); initParticles(); });
-    })();
-
-    /* ── INTERSECTION OBSERVER ── */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          // trigger counter if needed
-          const nums = e.target.querySelectorAll ? e.target.querySelectorAll('[data-target]') : [];
-          nums.forEach(animateCounter);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.fade-in, .valor-card').forEach(el => observer.observe(el));
-
-    // Also observe sobre section for counters
-    const sobreSection = document.getElementById('sobre');
-    if (sobreSection) observer.observe(sobreSection);
-
-    /* ── COUNTERS ── */
-    function animateCounter(el) {
-      if (el.dataset.animated) return;
-      el.dataset.animated = 'true';
-      const target = +el.dataset.target;
-      const prefix = el.dataset.prefix || '';
-      const suffix = el.dataset.suffix || '';
-      const dur = 1600;
-      const start = performance.now();
-
-      function format(n) {
-        if (n >= 1000) return prefix + n.toLocaleString('es-CO') + suffix;
-        return prefix + n + suffix;
-      }
-
-      function step(now) {
-        const prog = Math.min((now - start) / dur, 1);
-        const ease = 1 - Math.pow(1 - prog, 3);
-        el.textContent = format(Math.round(ease * target));
-        if (prog < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    // Counter observer
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.querySelectorAll('[data-target]').forEach(animateCounter);
-        }
-      });
-    }, { threshold: 0.3 });
-    counterObserver.observe(document.getElementById('sobre'));
-
-    /* ── CAROUSEL ── */
-    const track = document.getElementById('carouselTrack');
-    const slides = track.querySelectorAll('.reel-slide');
-    const dotsContainer = document.getElementById('carouselDots');
-    let current = 0;
-    let touchStartX = 0;
-
-    // Build dots
-    slides.forEach((_, i) => {
-      const d = document.createElement('button');
-      d.className = 'dot' + (i === 0 ? ' active' : '');
-      d.setAttribute('aria-label', `Slide ${i + 1}`);
-      d.addEventListener('click', () => goTo(i));
-      dotsContainer.appendChild(d);
-    });
-
-    function goTo(n) {
-      current = (n + slides.length) % slides.length;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      dotsContainer.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
-    }
-
-    document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
-    document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
-
-    // Touch / swipe
-    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
-    });
-
-    /* ── STICKY CTA ── */
-    (function () {
-      const btn = document.getElementById('stickyCta');
-      const hero = document.getElementById('hero');
-      function tick() {
-        btn.classList.toggle('visible', hero.getBoundingClientRect().bottom < 0);
-      }
+      var btn = document.getElementById('stickyCta');
+      var hero = document.getElementById('hero');
+      function tick() { btn.classList.toggle('visible', hero.getBoundingClientRect().bottom < 0); }
       window.addEventListener('scroll', tick, { passive: true });
       tick();
     })();
-
-    /* ── IFRAME ERROR FALLBACK ── */
-    document.querySelectorAll('.reel-frame').forEach((iframe, i) => {
-      iframe.addEventListener('error', () => {
-        iframe.style.display = 'none';
-        const ph = document.getElementById('ph-' + i);
-        if (ph) ph.style.display = 'flex';
-      });
-      // Also show placeholder if iframe src fails to load in 5s
-      const timer = setTimeout(() => {
-        try {
-          // Check if iframe loaded — if cross-origin it will throw
-          const _ = iframe.contentWindow.location.href;
-        } catch (_) {
-          // cross-origin loaded fine, do nothing
-        }
-      }, 5000);
-    });
   </script>
-
 </body>
 </html>
